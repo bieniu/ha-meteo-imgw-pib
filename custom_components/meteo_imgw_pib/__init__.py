@@ -32,7 +32,9 @@ class MeteoImgwPibData:
     coordinator: MeteoImgwPibDataUpdateCoordinator
 
 
-async def async_setup_entry(hass: HomeAssistant, entry: MeteoImgwPibConfigEntry) -> bool:
+async def async_setup_entry(
+    hass: HomeAssistant, entry: MeteoImgwPibConfigEntry
+) -> bool:
     """Set up Meteo IMGW-PIB from a config entry."""
     station_id: str = entry.data[CONF_STATION_ID]
 
@@ -58,6 +60,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: MeteoImgwPibConfigEntry)
     return True
 
 
-async def async_unload_entry(hass: HomeAssistant, entry: MeteoImgwPibConfigEntry) -> bool:
+async def async_unload_entry(
+    hass: HomeAssistant, entry: MeteoImgwPibConfigEntry
+) -> bool:
     """Unload a config entry."""
     return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)

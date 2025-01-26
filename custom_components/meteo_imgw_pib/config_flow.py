@@ -54,7 +54,9 @@ class MeteoImgwPibFlowHandler(ConfigFlow, domain=DOMAIN):
                 _LOGGER.exception("Unexpected exception")
                 errors["base"] = "unknown"
             else:
-                return self.async_create_entry(title=weather_data.station, data=user_input)
+                return self.async_create_entry(
+                    title=weather_data.station, data=user_input
+                )
 
         try:
             imgwpib = await ImgwPib.create(client_session)

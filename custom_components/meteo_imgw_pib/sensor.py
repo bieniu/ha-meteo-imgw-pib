@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass
 
-from imgw_pib.model import HydrologicalData
+from imgw_pib.model import WeatherData
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -13,7 +13,14 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.const import UnitOfLength, UnitOfTemperature, PERCENTAGE, UnitOfPressure, UnitOfSpeed, DEGREE
+from homeassistant.const import (
+    UnitOfLength,
+    UnitOfTemperature,
+    PERCENTAGE,
+    UnitOfPressure,
+    UnitOfSpeed,
+    DEGREE,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
@@ -29,7 +36,7 @@ PARALLEL_UPDATES = 1
 class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):
     """Meteo IMGW-PIB sensor entity description."""
 
-    value: Callable[[HydrologicalData], StateType]
+    value: Callable[[WeatherData], StateType]
 
 
 SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
