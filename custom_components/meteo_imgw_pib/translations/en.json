@@ -1,0 +1,26 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Service is already configured",
+            "cannot_connect": "Failed to connect"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "station_id": "Weather station"
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "wind_direction": {
+                "name": "Wind direction"
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "entity": {
+        "sensor": {
+            "wind_direction": {
+                "default": "mdi:compass-outline"
+            }
+        }
+    }
+}
+  

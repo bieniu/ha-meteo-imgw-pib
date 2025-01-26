@@ -1,0 +1,26 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Usługa jest juz skonfigurowana",
+            "cannot_connect": "Nie można nawiązać połączenia"
+        },
+        "error": {
+            "cannot_connect": "Nie można nawiązać połączenia",
+            "unknown": "Nieoczekiwany błąd"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "station_id": "Stacja pogodowa"
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "wind_direction": {
+                "name": "Kierunek wiatru"
+            }
+        }
+    }
+}

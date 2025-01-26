@@ -169,3 +169,15 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Home Assistant
+.HA_VERSION
+.storage
+blueprints
+home-assistant_v2.*
+home-assistant.log*
+automations.yaml
+configuration.yaml
+scenes.yaml
+scripts.yaml
+secrets.yaml
