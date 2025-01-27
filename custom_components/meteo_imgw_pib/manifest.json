@@ -6,7 +6,9 @@
     ],
     "config_flow": true,
     "documentation": "https://github.com/bieniu/ha-meteo-imgw-pib",
+    "issue_tracker": "https://github.com/bieniu/ha-meteo-imgw-pib/issues",
     "iot_class": "cloud_polling",
+    "integration_type": "service",
     "requirements": [
         "imgw_pib==1.0.9"
     ],
