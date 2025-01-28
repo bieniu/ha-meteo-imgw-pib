@@ -2,11 +2,10 @@
 
 import logging
 
-from imgw_pib import ApiError, WeatherData, ImgwPib
-
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+from imgw_pib import ApiError, ImgwPib, WeatherData
 
 from .const import DOMAIN, UPDATE_INTERVAL
 

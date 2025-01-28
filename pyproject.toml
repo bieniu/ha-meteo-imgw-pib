@@ -1,0 +1,53 @@
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+
+[tool.mypy]
+python_version = "3.13"
+show_error_codes = true
+follow_imports = "silent"
+ignore_missing_imports = true
+warn_incomplete_stub = true
+warn_redundant_casts = true
+warn_unused_configs = true
+check_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+strict_equality = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_unreachable = true
+
+[tool.ruff]
+target-version = "py313"
+
+lint.select = ["ALL"]
+
+lint.ignore = [
+    "ANN201",   # Missing return type annotation for public function
+    "ANN401",   # Dynamically typed expressions (typing.Any) are disallowed
+    "COM812",   # Trailing comma missing
+    "D203",     # 1 blank line required before class docstring
+    "D213",     # Multi-line docstring summary should start at the second line
+    "EM101",    # Exception must not use a string literal, assign to variable first
+    "EM102",    # Exception must not use an f-string literal, assign to variable first
+    "FBT001",   # Boolean positional arg in function definition
+    "ISC001",   # Single line implicit string concatenation
+    "PLR0915",  # Too many statements
+    "TC001",    # Move application import into a type-checking block
+    "TC002",    # Move third-party import into a type-checking block
+    "TC003",    # Move standard library import into a type-checking block
+    "TRY003",   # Avoid specifying long messages outside the exception class
+]
+
+[tool.ruff.lint.per-file-ignores]
+"example.py" = [
+    "ERA001",    # Found commented-out code
+    "T201",      # `print` found
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 25

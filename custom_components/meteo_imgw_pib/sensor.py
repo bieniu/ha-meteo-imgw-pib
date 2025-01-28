@@ -5,8 +5,6 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass
 
-from imgw_pib.model import WeatherData
-
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -14,16 +12,17 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.const import (
-    UnitOfLength,
-    UnitOfTemperature,
+    DEGREE,
     PERCENTAGE,
+    UnitOfLength,
     UnitOfPressure,
     UnitOfSpeed,
-    DEGREE,
+    UnitOfTemperature,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
+from imgw_pib.model import WeatherData
 
 from . import MeteoImgwPibConfigEntry
 from .coordinator import MeteoImgwPibDataUpdateCoordinator
@@ -33,7 +32,7 @@ PARALLEL_UPDATES = 1
 
 
 @dataclass(frozen=True, kw_only=True)
-class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):
+class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):  # type: ignore[override]
     """Meteo IMGW-PIB sensor entity description."""
 
     value: Callable[[WeatherData], StateType]
@@ -92,7 +91,7 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
 
 
 async def async_setup_entry(
-    hass: HomeAssistant,
+    _hass: HomeAssistant,
     entry: MeteoImgwPibConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:

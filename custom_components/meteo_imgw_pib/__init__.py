@@ -2,18 +2,17 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import logging
+from dataclasses import dataclass
 
 from aiohttp import ClientError
-from imgw_pib import ImgwPib
-from imgw_pib.exceptions import ApiError
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from imgw_pib import ImgwPib
+from imgw_pib.exceptions import ApiError
 
 from .const import CONF_STATION_ID
 from .coordinator import MeteoImgwPibDataUpdateCoordinator

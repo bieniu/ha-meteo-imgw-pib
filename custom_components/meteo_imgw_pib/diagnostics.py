@@ -11,7 +11,7 @@ from . import MeteoImgwPibConfigEntry
 
 
 async def async_get_config_entry_diagnostics(
-    hass: HomeAssistant, entry: MeteoImgwPibConfigEntry
+    _hass: HomeAssistant, entry: MeteoImgwPibConfigEntry
 ) -> dict[str, Any]:
     """Return diagnostics for a config entry."""
     coordinator = entry.runtime_data.coordinator
