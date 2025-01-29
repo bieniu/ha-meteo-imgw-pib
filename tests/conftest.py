@@ -6,9 +6,12 @@ from unittest.mock import AsyncMock, Mock, patch
 
 import pytest
 from imgw_pib.model import SensorData, WeatherData
+from pytest_homeassistant_custom_component.common import MockConfigEntry
 from syrupy.assertion import SnapshotAssertion
 from syrupy.extensions.amber import AmberSnapshotExtension
 from syrupy.location import PyTestLocation
+
+from custom_components.meteo_imgw_pib.const import CONF_STATION_ID, DOMAIN
 
 WEATHER_DATA = WeatherData(
     temperature=SensorData(name="temperature", value=12.5),
@@ -38,6 +41,19 @@ def mock_imgw_pib_client() -> Generator[AsyncMock]:
         client.weather_stations = {"12200": "Warszawa"}
 
         yield client
+
+
+@pytest.fixture
+def mock_config_entry() -> MockConfigEntry:
+    """Mock a config entry."""
+    return MockConfigEntry(
+        domain=DOMAIN,
+        title="Warszawa",
+        unique_id="12200",
+        data={
+            CONF_STATION_ID: "12200",
+        },
+    )
 
 
 @pytest.fixture(autouse=True)
