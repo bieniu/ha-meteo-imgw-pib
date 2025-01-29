@@ -1,0 +1,195 @@
+# serializer version: 1
+# name: test_sensor[sensor.warszawa_humidity-entry]
+  dict({
+    'disabled_by': None,
+    'entity_category': None,
+    'entity_id': 'sensor.warszawa_humidity',
+    'has_entity_name': True,
+    'icon': None,
+    'name': None,
+    'options': ReadOnlyDict({
+      'sensor': ReadOnlyDict({
+        'suggested_display_precision': 0,
+      }),
+    }),
+    'original_name': 'Humidity',
+    'platform': 'meteo_imgw_pib',
+    'translation_key': None,
+    'unique_id': '12200_humidity',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_humidity-state]
+  dict({
+    'attributes': ReadOnlyDict({
+      'attribution': 'Data provided by IMGW-PIB',
+      'device_class': 'humidity',
+      'friendly_name': 'Warszawa Humidity',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': '%',
+    }),
+    'entity_id': 'sensor.warszawa_humidity',
+    'state': '88',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_precipitation-entry]
+  dict({
+    'disabled_by': None,
+    'entity_category': None,
+    'entity_id': 'sensor.warszawa_precipitation',
+    'has_entity_name': True,
+    'icon': None,
+    'name': None,
+    'options': ReadOnlyDict({
+      'sensor': ReadOnlyDict({
+        'suggested_display_precision': 0,
+      }),
+    }),
+    'original_name': 'Precipitation',
+    'platform': 'meteo_imgw_pib',
+    'translation_key': None,
+    'unique_id': '12200_precipitation',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_precipitation-state]
+  dict({
+    'attributes': ReadOnlyDict({
+      'attribution': 'Data provided by IMGW-PIB',
+      'device_class': 'precipitation',
+      'friendly_name': 'Warszawa Precipitation',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfLength.MILLIMETERS: 'mm'>,
+    }),
+    'entity_id': 'sensor.warszawa_precipitation',
+    'state': '5',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_pressure-entry]
+  dict({
+    'disabled_by': None,
+    'entity_category': None,
+    'entity_id': 'sensor.warszawa_pressure',
+    'has_entity_name': True,
+    'icon': None,
+    'name': None,
+    'options': ReadOnlyDict({
+      'sensor': ReadOnlyDict({
+        'suggested_display_precision': 0,
+      }),
+    }),
+    'original_name': 'Pressure',
+    'platform': 'meteo_imgw_pib',
+    'translation_key': None,
+    'unique_id': '12200_pressure',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_pressure-state]
+  dict({
+    'attributes': ReadOnlyDict({
+      'attribution': 'Data provided by IMGW-PIB',
+      'device_class': 'pressure',
+      'friendly_name': 'Warszawa Pressure',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfPressure.HPA: 'hPa'>,
+    }),
+    'entity_id': 'sensor.warszawa_pressure',
+    'state': '1002',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_temperature-entry]
+  dict({
+    'disabled_by': None,
+    'entity_category': None,
+    'entity_id': 'sensor.warszawa_temperature',
+    'has_entity_name': True,
+    'icon': None,
+    'name': None,
+    'options': ReadOnlyDict({
+      'sensor': ReadOnlyDict({
+        'suggested_display_precision': 1,
+      }),
+    }),
+    'original_name': 'Temperature',
+    'platform': 'meteo_imgw_pib',
+    'translation_key': None,
+    'unique_id': '12200_temperature',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_temperature-state]
+  dict({
+    'attributes': ReadOnlyDict({
+      'attribution': 'Data provided by IMGW-PIB',
+      'device_class': 'temperature',
+      'friendly_name': 'Warszawa Temperature',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfTemperature.CELSIUS: '°C'>,
+    }),
+    'entity_id': 'sensor.warszawa_temperature',
+    'state': '12.5',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_wind_direction-entry]
+  dict({
+    'disabled_by': None,
+    'entity_category': None,
+    'entity_id': 'sensor.warszawa_wind_direction',
+    'has_entity_name': True,
+    'icon': None,
+    'name': None,
+    'options': ReadOnlyDict({
+      'sensor': ReadOnlyDict({
+        'suggested_display_precision': 0,
+      }),
+    }),
+    'original_name': 'Wind direction',
+    'platform': 'meteo_imgw_pib',
+    'translation_key': 'wind_direction',
+    'unique_id': '12200_wind_direction',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_wind_direction-state]
+  dict({
+    'attributes': ReadOnlyDict({
+      'attribution': 'Data provided by IMGW-PIB',
+      'friendly_name': 'Warszawa Wind direction',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': '°',
+    }),
+    'entity_id': 'sensor.warszawa_wind_direction',
+    'state': '12',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_wind_speed-entry]
+  dict({
+    'disabled_by': None,
+    'entity_category': None,
+    'entity_id': 'sensor.warszawa_wind_speed',
+    'has_entity_name': True,
+    'icon': None,
+    'name': None,
+    'options': ReadOnlyDict({
+      'sensor': ReadOnlyDict({
+        'suggested_display_precision': 0,
+      }),
+      'sensor.private': ReadOnlyDict({
+        'suggested_unit_of_measurement': <UnitOfSpeed.KILOMETERS_PER_HOUR: 'km/h'>,
+      }),
+    }),
+    'original_name': 'Wind speed',
+    'platform': 'meteo_imgw_pib',
+    'translation_key': None,
+    'unique_id': '12200_wind_speed',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_wind_speed-state]
+  dict({
+    'attributes': ReadOnlyDict({
+      'attribution': 'Data provided by IMGW-PIB',
+      'device_class': 'wind_speed',
+      'friendly_name': 'Warszawa Wind speed',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfSpeed.KILOMETERS_PER_HOUR: 'km/h'>,
+    }),
+    'entity_id': 'sensor.warszawa_wind_speed',
+    'state': '14.4',
+  })
+# ---

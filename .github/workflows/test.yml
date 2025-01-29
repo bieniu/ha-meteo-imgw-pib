@@ -8,12 +8,12 @@ on:
 
 jobs:
   test:
+    name: Test with tox
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version:
           - "3.13"
-          - "3.12"
 
     steps:
       - name: Check out repository
@@ -27,6 +27,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install tox tox-gh-actions
-  
+
       - name: Test with tox
         run: tox
