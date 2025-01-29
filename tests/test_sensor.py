@@ -1,26 +1,27 @@
 """Test sensor of Meteo IMGW-PIB integration."""
 
-from unittest.mock import AsyncMock, Mock
+from unittest.mock import AsyncMock
 
 from pytest_homeassistant_custom_component.common import (
     HomeAssistant,
+    MockConfigEntry,
     er,
 )
 from syrupy import SnapshotAssertion
 
+from . import init_integration
+
 
 async def test_sensor(
     hass: HomeAssistant,
-    mock_config_entry: Mock,
+    mock_config_entry: MockConfigEntry,
     mock_imgw_pib_client: AsyncMock,
     snapshot: SnapshotAssertion,
 ) -> None:
     """Test sensor."""
     entity_registry = er.async_get(hass)
 
-    mock_config_entry.add_to_hass(hass)
-    await hass.config_entries.async_setup(mock_config_entry.entry_id)
-    await hass.async_block_till_done()
+    await init_integration(hass, mock_config_entry)
 
     entity_entries = er.async_entries_for_config_entry(
         entity_registry, mock_config_entry.entry_id

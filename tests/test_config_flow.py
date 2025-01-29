@@ -1,11 +1,12 @@
 """Define tests for the Meteo IMGW-PIB config flow."""
 
-from unittest.mock import AsyncMock, Mock, patch
+from unittest.mock import AsyncMock, patch
 
 from homeassistant.data_entry_flow import FlowResultType
 from imgw_pib.exceptions import ApiError
 from pytest_homeassistant_custom_component.common import (
     HomeAssistant,
+    MockConfigEntry,
     config_entries,
 )
 
@@ -37,7 +38,9 @@ async def test_create_entry(
 
 
 async def test_duplicate_error(
-    hass: HomeAssistant, mock_imgw_pib_client: Mock, mock_config_entry: AsyncMock
+    hass: HomeAssistant,
+    mock_imgw_pib_client: AsyncMock,
+    mock_config_entry: MockConfigEntry,
 ) -> None:
     """Test that errors are shown when duplicates are added."""
     mock_config_entry.add_to_hass(hass)
