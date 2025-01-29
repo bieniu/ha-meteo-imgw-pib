@@ -1,6 +1,6 @@
 """Test sensor of Meteo IMGW-PIB integration."""
 
-from unittest.mock import Mock
+from unittest.mock import AsyncMock
 
 from pytest_homeassistant_custom_component.common import (
     HomeAssistant,
@@ -13,14 +13,12 @@ from custom_components.meteo_imgw_pib.const import CONF_STATION_ID, DOMAIN
 
 
 async def test_sensor(
-    hass: HomeAssistant, bypass_get_data: Mock, snapshot: SnapshotAssertion
+    hass: HomeAssistant, mock_imgw_pib_client: AsyncMock, snapshot: SnapshotAssertion
 ) -> None:
     """Test sensor."""
     entity_registry = er.async_get(hass)
 
-    entry = MockConfigEntry(
-        domain=DOMAIN, data={CONF_STATION_ID: "12200"}, title="Test title"
-    )
+    entry = MockConfigEntry(domain=DOMAIN, data={CONF_STATION_ID: "12200"})
     entry.add_to_hass(hass)
     await hass.config_entries.async_setup(entry.entry_id)
     await hass.async_block_till_done()
