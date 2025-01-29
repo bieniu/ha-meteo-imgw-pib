@@ -2,10 +2,14 @@
 
 import json
 from collections.abc import Generator
+from pathlib import Path
 from unittest.mock import Mock, patch
 
 import pytest
 from pytest_homeassistant_custom_component.common import load_fixture
+from syrupy.assertion import SnapshotAssertion
+from syrupy.extensions.amber import AmberSnapshotExtension
+from syrupy.location import PyTestLocation
 
 from custom_components.meteo_imgw_pib import ApiError
 
@@ -36,3 +40,19 @@ def error_get_data_fixture() -> Generator[None]:
 def auto_enable_custom_integrations(enable_custom_integrations: Mock) -> None:
     """Auto enable custom integrations."""
     return
+
+
+@pytest.fixture
+def snapshot(snapshot: SnapshotAssertion) -> SnapshotAssertion:
+    """Return snapshot assertion fixture."""
+    return snapshot.use_extension(SnapshotExtension)
+
+
+class SnapshotExtension(AmberSnapshotExtension):
+    """Extension for Syrupy."""
+
+    @classmethod
+    def dirname(cls, *, test_location: PyTestLocation) -> str:
+        """Return the directory for the snapshot files."""
+        test_dir = Path(test_location.filepath).parent
+        return str(test_dir.joinpath("snapshots"))

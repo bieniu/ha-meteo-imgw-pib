@@ -3,8 +3,11 @@
 from unittest.mock import Mock
 
 import pytest
-from homeassistant.config_entries import ConfigEntryState
-from pytest_homeassistant_custom_component.common import HomeAssistant, MockConfigEntry
+from pytest_homeassistant_custom_component.common import (
+    HomeAssistant,
+    MockConfigEntry,
+    config_entries,
+)
 
 from custom_components.meteo_imgw_pib.const import CONF_STATION_ID, DOMAIN
 
@@ -20,7 +23,7 @@ async def test_config_entry_not_ready(
     entry.add_to_hass(hass)
     await hass.config_entries.async_setup(entry.entry_id)
 
-    assert entry.state == ConfigEntryState.SETUP_RETRY
+    assert entry.state == config_entries.ConfigEntryState.SETUP_RETRY
 
 
 @pytest.mark.asyncio
@@ -34,10 +37,10 @@ async def test_unload_entry(hass: HomeAssistant, bypass_get_data: Mock) -> None:
     await hass.async_block_till_done()
 
     assert len(hass.config_entries.async_entries(DOMAIN)) == 1
-    assert entry.state == ConfigEntryState.LOADED
+    assert entry.state == config_entries.ConfigEntryState.LOADED
 
     assert await hass.config_entries.async_unload(entry.entry_id)
     await hass.async_block_till_done()
 
-    assert entry.state == ConfigEntryState.NOT_LOADED
+    assert entry.state == config_entries.ConfigEntryState.NOT_LOADED
     assert not hass.data.get(DOMAIN)
