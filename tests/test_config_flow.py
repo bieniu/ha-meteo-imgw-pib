@@ -1,6 +1,6 @@
 """Define tests for the Meteo IMGW-PIB config flow."""
 
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock
 
 from homeassistant.data_entry_flow import FlowResultType
 from imgw_pib.exceptions import ApiError
@@ -16,7 +16,7 @@ USER_INPUT = {CONF_STATION_ID: "12200"}
 
 
 async def test_create_entry(
-    hass: HomeAssistant, mock_imgw_pib_client: AsyncMock
+    hass: HomeAssistant, mock_setup_entry: AsyncMock, mock_imgw_pib_client: AsyncMock
 ) -> None:
     """Test that the user step works."""
     result = await hass.config_entries.flow.async_init(
@@ -27,14 +27,13 @@ async def test_create_entry(
     assert result["step_id"] == config_entries.SOURCE_USER
     assert result["errors"] == {}
 
-    with patch("custom_components.meteo_imgw_pib.async_setup_entry", return_value=True):
-        result = await hass.config_entries.flow.async_configure(
-            result["flow_id"], user_input=USER_INPUT
-        )
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], user_input=USER_INPUT
+    )
 
-        assert result["type"] is FlowResultType.CREATE_ENTRY
-        assert result["title"] == "Warszawa"
-        assert result["data"][CONF_STATION_ID] == "12200"
+    assert result["type"] is FlowResultType.CREATE_ENTRY
+    assert result["title"] == "Warszawa"
+    assert result["data"][CONF_STATION_ID] == "12200"
 
 
 async def test_duplicate_error(
