@@ -15,14 +15,14 @@ jobs:
       - name: ZIP files
         run: |
           cd /home/runner/work/ha-meteo-imgw-pib/ha-meteo-imgw-pib/custom_components/meteo_imgw_pib
-          zip meteo_imgw_pib.zip -r ./
+          zip /home/runner/work/ha-meteo-imgw-pib/meteo_imgw_pib.zip -r ./
 
       - name: Upload zip to release
         uses: svenstaro/upload-release-action@2.9.0
 
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /home/runner/work/ha-meteo-imgw-pib/ha-meteo-imgw-pib/custom_components/meteo_imgw_pib/meteo_imgw_pib.zip
+          file: /home/runner/work/ha-meteo-imgw-pib/meteo_imgw_pib.zip
           asset_name: meteo_imgw_pib.zip
           tag: ${{ github.ref }}
           overwrite: true
