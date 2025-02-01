@@ -12,17 +12,18 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: ZIP files
+      - name: Create zipped release package
+        shell: bash
         run: |
-          cd /home/runner/work/ha-meteo-imgw-pib/ha-meteo-imgw-pib/custom_components/meteo_imgw_pib
-          zip /home/runner/work/ha-meteo-imgw-pib/meteo_imgw_pib.zip -r ./
+          cd "${{ github.workspace }}/custom_components/meteo_imgw_pib"
+          zip meteo_imgw_pib.zip -r ./
+
+      - name: Sign release package
+        uses: sigstore/gh-action-sigstore-python@v3.0.0
+        with:
+          inputs: ${{ github.workspace }}/custom_components/meteo_imgw_pib/meteo_imgw_pib.zip
 
       - name: Upload zip to release
-        uses: svenstaro/upload-release-action@2.9.0
-
+        uses: softprops/action-gh-release@v2.2.1
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /home/runner/work/ha-meteo-imgw-pib/meteo_imgw_pib.zip
-          asset_name: meteo_imgw_pib.zip
-          tag: ${{ github.ref }}
-          overwrite: true
+          files: ${{ github.workspace }}/custom_components/meteo_imgw_pib/meteo_imgw_pib.zip
