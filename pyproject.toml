@@ -1,5 +1,6 @@
 [tool.pytest.ini_options]
-asyncio_mode = "strict"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.mypy]
 python_version = "3.13"
@@ -47,6 +48,11 @@ lint.ignore = [
 "example.py" = [
     "ERA001",    # Found commented-out code
     "T201",      # `print` found
+]
+"tests/*" = [
+    "ARG001",    # Unused function argument
+    "S101",      # Use of `assert` detected
+    "SLF001",    # Private member accessed
 ]
 
 [tool.ruff.lint.mccabe]

@@ -1,0 +1,12 @@
+{
+    "id_stacji": "12200",
+    "stacja": "Warszawa",
+    "data_pomiaru": "2025-01-29",
+    "godzina_pomiaru": "9",
+    "temperatura": "4.5",
+    "predkosc_wiatru": "3",
+    "kierunek_wiatru": "190",
+    "wilgotnosc_wzgledna": "95.8",
+    "suma_opadu": "2",
+    "cisnienie": "999.3"
+}
