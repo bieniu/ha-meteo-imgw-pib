@@ -18,7 +18,7 @@ jobs:
           zip meteo_imgw_pib.zip -r ./
 
       - name: Upload zip to release
-        uses: svenstaro/upload-release-action@v2
+        uses: svenstaro/upload-release-action@2.9.0
 
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
