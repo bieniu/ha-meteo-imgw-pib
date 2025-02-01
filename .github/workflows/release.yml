@@ -18,11 +18,6 @@ jobs:
           cd "${{ github.workspace }}/custom_components/meteo_imgw_pib"
           zip meteo_imgw_pib.zip -r ./
 
-      - name: Sign release package
-        uses: sigstore/gh-action-sigstore-python@v3.0.0
-        with:
-          inputs: ${{ github.workspace }}/custom_components/meteo_imgw_pib/meteo_imgw_pib.zip
-
       - name: Upload zip to release
         uses: softprops/action-gh-release@v2.2.1
         with:
