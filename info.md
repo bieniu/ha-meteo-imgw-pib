@@ -5,14 +5,16 @@
 
 
 # Meteo IMGW-PIB
+
 Meteo IMGW-PIB custom integration uses data from the IMGW-PIB API (Poland only) to present weather condition in Home Assistant.
+
+![obraz](https://github.com/user-attachments/assets/c870f780-7cb2-4eab-b5e0-9783c1c7b79f)
+
+## Configuration
 
 To configure integration in Home Assistant, go to **Settings** >> **Devices & services** >> **Add integration** >> **Meteo IMGW-PIB** or use My Home Assistant link.
 
 [![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=meteo_imgw_pib)
-
-![obraz](https://github.com/user-attachments/assets/c870f780-7cb2-4eab-b5e0-9783c1c7b79f)
-
 
 
 [buy-me-a-coffee-shield]: https://img.shields.io/static/v1.svg?label=%20&message=Buy%20me%20a%20coffee&color=6f4e37&logo=buy%20me%20a%20coffee&logoColor=white
