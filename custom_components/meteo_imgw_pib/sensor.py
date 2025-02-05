@@ -32,7 +32,7 @@ PARALLEL_UPDATES = 1
 
 
 @dataclass(frozen=True, kw_only=True)
-class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):  # type: ignore[override]
+class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):
     """Meteo IMGW-PIB sensor entity description."""
 
     value: Callable[[WeatherData], StateType]
