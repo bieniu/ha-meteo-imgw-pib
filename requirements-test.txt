@@ -4,7 +4,7 @@ imgw_pib==1.0.9
 mypy==1.14.1
 pytest-cov==6.0.0
 pytest-error-for-skips==2.0.2
-pytest-homeassistant-custom-component==0.13.205
+pytest-homeassistant-custom-component==0.13.209
 pytest==8.3.4
 ruff==0.9.2
 syrupy
