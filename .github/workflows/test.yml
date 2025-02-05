@@ -32,7 +32,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .tox
-          key: tox-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles("tox.ini", "requirements-test.txt") }}
+          key: tox-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('tox.ini', 'requirements-test.txt') }}
           restore-keys: |
             tox-${{ runner.os }}-${{ matrix.python-version }}-
             tox-${{ runner.os }}-
