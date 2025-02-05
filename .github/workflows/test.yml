@@ -38,4 +38,4 @@ jobs:
 
       - name: Test with tox
         run: |
-          tox -p auto
+          tox -p
