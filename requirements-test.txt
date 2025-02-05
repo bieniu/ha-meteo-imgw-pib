@@ -1,4 +1,4 @@
-coverage==7.6.8
+coverage==7.6.10
 homeassistant
 imgw_pib==1.0.9
 mypy==1.14.1
