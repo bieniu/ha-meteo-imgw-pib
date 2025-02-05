@@ -26,10 +26,7 @@ jobs:
 
       - name: Install uv and tox
         run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
-          uv venv .venv
-          source .venv/bin/activate
-          uv pip install tox
+          pip install uv tox tox-gh-actions tox-uv
 
       - name: Cache tox environments
         uses: actions/cache@v4
@@ -41,5 +38,4 @@ jobs:
 
       - name: Test with tox
         run: |
-          source .venv/bin/activate
           tox -p auto
