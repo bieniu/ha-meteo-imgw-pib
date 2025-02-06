@@ -29,15 +29,6 @@ jobs:
           pip install uv
           uv pip install --system tox tox-uv
 
-      - name: Cache tox environments
-        uses: actions/cache@v4
-        with:
-          path: .tox
-          key: tox-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('tox.ini', 'requirements-test.txt') }}
-          restore-keys: |
-            tox-${{ runner.os }}-${{ matrix.python-version }}-
-            tox-${{ runner.os }}-
-
       - name: Test with tox
         run: |
-          tox -p auto
+          tox
