@@ -24,8 +24,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
 from imgw_pib.model import WeatherData
 
-from . import MeteoImgwPibConfigEntry
-from .coordinator import MeteoImgwPibDataUpdateCoordinator
+from .coordinator import MeteoImgwPibConfigEntry, MeteoImgwPibDataUpdateCoordinator
 from .entity import MeteoImgwPibEntity
 
 PARALLEL_UPDATES = 1

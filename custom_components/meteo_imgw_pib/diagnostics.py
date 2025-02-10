@@ -7,7 +7,7 @@ from typing import Any
 
 from homeassistant.core import HomeAssistant
 
-from . import MeteoImgwPibConfigEntry
+from .coordinator import MeteoImgwPibConfigEntry
 
 
 async def async_get_config_entry_diagnostics(
