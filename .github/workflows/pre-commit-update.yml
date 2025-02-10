@@ -1,4 +1,7 @@
 name: Pre-commit auto-update
+permissions:
+  contents: write
+  pull-requests: write
 on:
   schedule:
     - cron: "0 0 * * 1"
