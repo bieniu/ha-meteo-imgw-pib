@@ -20,7 +20,7 @@ from homeassistant.const import (
     UnitOfTemperature,
 )
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.typing import StateType
 from imgw_pib.model import WeatherData
 
@@ -92,7 +92,7 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
 async def async_setup_entry(
     _hass: HomeAssistant,
     entry: MeteoImgwPibConfigEntry,
-    async_add_entities: AddEntitiesCallback,
+    async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Add a Meteo IMGW-PIB sensor entity from a config_entry."""
     coordinator = entry.runtime_data.coordinator
