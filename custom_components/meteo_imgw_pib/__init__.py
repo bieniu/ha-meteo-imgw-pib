@@ -3,10 +3,8 @@
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
 
 from aiohttp import ClientError
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
@@ -15,20 +13,15 @@ from imgw_pib import ImgwPib
 from imgw_pib.exceptions import ApiError
 
 from .const import CONF_STATION_ID
-from .coordinator import MeteoImgwPibDataUpdateCoordinator
+from .coordinator import (
+    MeteoImgwPibConfigEntry,
+    MeteoImgwPibData,
+    MeteoImgwPibDataUpdateCoordinator,
+)
 
 PLATFORMS: list[Platform] = [Platform.SENSOR]
 
 _LOGGER = logging.getLogger(__name__)
-
-type MeteoImgwPibConfigEntry = ConfigEntry[MeteoImgwPibData]
-
-
-@dataclass
-class MeteoImgwPibData:
-    """Data for the Meteo IMGW-PIB integration."""
-
-    coordinator: MeteoImgwPibDataUpdateCoordinator
 
 
 async def async_setup_entry(
@@ -49,7 +42,7 @@ async def async_setup_entry(
     except (ClientError, TimeoutError, ApiError) as err:
         raise ConfigEntryNotReady from err
 
-    coordinator = MeteoImgwPibDataUpdateCoordinator(hass, imgwpib, station_id)
+    coordinator = MeteoImgwPibDataUpdateCoordinator(hass, entry, imgwpib, station_id)
     await coordinator.async_config_entry_first_refresh()
 
     entry.runtime_data = MeteoImgwPibData(coordinator)
