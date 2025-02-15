@@ -57,3 +57,49 @@ lint.ignore = [
 
 [tool.ruff.lint.mccabe]
 max-complexity = 25
+
+[tool.tox]
+envlist = ["py313", "lint", "typing", "coverage"]
+skip_missing_interpreters = true
+
+[tool.tox.gh-actions]
+python = { "3.13" = ["py313", "lint", "typing", "coverage"] }
+
+[tool.tox.testenv]
+commands = [
+  "pytest --timeout=30 --cov=custom_components/meteo_imgw_pib --cov-report=term-missing --cov-report=xml {posargs} --error-for-skips"
+]
+install_command = "uv pip install --prerelease=allow {opts} {packages}"
+deps = [
+  "-rrequirements-test.txt"
+]
+
+[tool.tox.testenv.lint]
+basepython = "python3"
+depends = ["py313"]
+ignore_errors = true
+usedevelop = false
+skip_install = true
+commands = [
+  "ruff check .",
+  "ruff format --check ."
+]
+
+[tool.tox.testenv.typing]
+basepython = "python3"
+depends = ["py313"]
+ignore_errors = true
+usedevelop = false
+skip_install = true
+commands = [
+  "mypy custom_components/meteo_imgw_pib"
+]
+
+[tool.tox.testenv.coverage]
+basepython = "python3"
+depends = ["py313"]
+usedevelop = false
+skip_install = true
+commands = [
+  "coverage report --fail-under=79"
+]
