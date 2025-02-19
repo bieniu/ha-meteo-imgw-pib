@@ -72,8 +72,8 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
     ),
     MeteoImgwPibSensorEntityDescription(
         key="wind_direction",
-        translation_key="wind_direction",
         native_unit_of_measurement=DEGREE,
+        device_class=SensorDeviceClass.WIND_DIRECTION,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
         value=lambda data: data.wind_direction.value,
