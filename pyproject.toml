@@ -59,47 +59,48 @@ lint.ignore = [
 max-complexity = 25
 
 [tool.tox]
-envlist = ["py313", "lint", "typing", "coverage"]
-skip_missing_interpreters = true
+legacy_tox_ini = """
 
-[tool.tox.gh-actions]
-python = { "3.13" = ["py313", "lint", "typing", "coverage"] }
+[tox]
+envlist = py313, lint, typing, coverage
+skip_missing_interpreters = True
 
-[tool.tox.testenv]
-commands = [
-  "pytest --timeout=30 --cov=custom_components/meteo_imgw_pib --cov-report=term-missing --cov-report=xml {posargs} --error-for-skips"
-]
-install_command = "uv pip install --prerelease=allow {opts} {packages}"
-deps = [
-  "-rrequirements-test.txt"
-]
+[gh-actions]
+python =
+  3.13: py313, lint, typing, coverage
 
-[tool.tox.testenv.lint]
-basepython = "python3"
-depends = ["py313"]
-ignore_errors = true
-usedevelop = false
-skip_install = true
-commands = [
-  "ruff check .",
-  "ruff format --check ."
-]
+[testenv]
+commands =
+  pytest --timeout=30 --cov=custom_components/meteo_imgw_pib --cov-report=term-missing --cov-report=xml {posargs} --error-for-skips
+install_command =
+  uv pip install --prerelease=allow {opts} {packages}
+deps =
+  -rrequirements-test.txt
 
-[tool.tox.testenv.typing]
-basepython = "python3"
-depends = ["py313"]
-ignore_errors = true
-usedevelop = false
-skip_install = true
-commands = [
-  "mypy custom_components/meteo_imgw_pib"
-]
+[testenv:lint]
+basepython = python3
+depends = py313
+ignore_errors = True
+usedevelop = False
+skip_install = True
+commands =
+  ruff check .
+  ruff format --check .
 
-[tool.tox.testenv.coverage]
-basepython = "python3"
-depends = ["py313"]
-usedevelop = false
-skip_install = true
-commands = [
-  "coverage report --fail-under=79"
-]
+[testenv:typing]
+basepython = python3
+depends = py313
+ignore_errors = True
+usedevelop = False
+skip_install = True
+commands =
+  mypy custom_components/meteo_imgw_pib
+
+[testenv:coverage]
+basepython = python3
+depends = py313
+usedevelop = False
+skip_install = True
+commands =
+  coverage report --fail-under=79
+"""
