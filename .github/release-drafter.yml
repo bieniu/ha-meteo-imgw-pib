@@ -38,4 +38,6 @@ include-labels:
   - "ci"
 
 template: |
+  [![Downloads for this release](https://img.shields.io/github/downloads/bieniu/ha-meteo-imgw-pib/$RESOLVED_VERSION/total.svg)](https://github.com/bieniuha-meteo-imgw-pib/releases/$RESOLVED_VERSION)
+  
   $CHANGES
