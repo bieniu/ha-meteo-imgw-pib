@@ -1,6 +1,7 @@
 # serializer version: 1
 # name: test_sensor[sensor.warszawa_humidity-entry]
   dict({
+    'config_subentry_id': None,
     'disabled_by': None,
     'entity_category': None,
     'entity_id': 'sensor.warszawa_humidity',
@@ -33,6 +34,7 @@
 # ---
 # name: test_sensor[sensor.warszawa_precipitation-entry]
   dict({
+    'config_subentry_id': None,
     'disabled_by': None,
     'entity_category': None,
     'entity_id': 'sensor.warszawa_precipitation',
@@ -65,6 +67,7 @@
 # ---
 # name: test_sensor[sensor.warszawa_pressure-entry]
   dict({
+    'config_subentry_id': None,
     'disabled_by': None,
     'entity_category': None,
     'entity_id': 'sensor.warszawa_pressure',
@@ -97,6 +100,7 @@
 # ---
 # name: test_sensor[sensor.warszawa_temperature-entry]
   dict({
+    'config_subentry_id': None,
     'disabled_by': None,
     'entity_category': None,
     'entity_id': 'sensor.warszawa_temperature',
@@ -129,6 +133,7 @@
 # ---
 # name: test_sensor[sensor.warszawa_wind_direction-entry]
   dict({
+    'config_subentry_id': None,
     'disabled_by': None,
     'entity_category': None,
     'entity_id': 'sensor.warszawa_wind_direction',
@@ -142,7 +147,7 @@
     }),
     'original_name': 'Wind direction',
     'platform': 'meteo_imgw_pib',
-    'translation_key': 'wind_direction',
+    'translation_key': None,
     'unique_id': '12200_wind_direction',
   })
 # ---
@@ -150,6 +155,7 @@
   dict({
     'attributes': ReadOnlyDict({
       'attribution': 'Data provided by IMGW-PIB',
+      'device_class': 'wind_direction',
       'friendly_name': 'Warszawa Wind direction',
       'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
       'unit_of_measurement': '°',
@@ -160,6 +166,7 @@
 # ---
 # name: test_sensor[sensor.warszawa_wind_speed-entry]
   dict({
+    'config_subentry_id': None,
     'disabled_by': None,
     'entity_category': None,
     'entity_id': 'sensor.warszawa_wind_speed',

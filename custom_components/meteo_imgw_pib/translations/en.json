@@ -15,12 +15,5 @@
                 }
             }
         }
-    },
-    "entity": {
-        "sensor": {
-            "wind_direction": {
-                "name": "Wind direction"
-            }
-        }
     }
 }
