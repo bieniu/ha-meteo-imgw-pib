@@ -36,7 +36,6 @@ lint.ignore = [
     "EM101",    # Exception must not use a string literal, assign to variable first
     "EM102",    # Exception must not use an f-string literal, assign to variable first
     "FBT001",   # Boolean positional arg in function definition
-    "ISC001",   # Single line implicit string concatenation
     "PLR0915",  # Too many statements
     "TC001",    # Move application import into a type-checking block
     "TC002",    # Move third-party import into a type-checking block
@@ -45,10 +44,6 @@ lint.ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"example.py" = [
-    "ERA001",    # Found commented-out code
-    "T201",      # `print` found
-]
 "tests/*" = [
     "ARG001",    # Unused function argument
     "S101",      # Use of `assert` detected
