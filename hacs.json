@@ -1,6 +1,6 @@
 {
     "name": "Meteo IMGW-PIB",
-    "homeassistant": "2025.3.0",
+    "homeassistant": "2025.4.0b0",
     "zip_release": true,
     "filename": "meteo_imgw_pib.zip",
     "country": "PL"
