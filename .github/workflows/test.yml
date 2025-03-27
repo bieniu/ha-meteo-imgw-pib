@@ -28,4 +28,4 @@ jobs:
         run: uv pip install tox tox-uv
 
       - name: Test with tox
-        run: tox
+        run: python3.13 -m tox
