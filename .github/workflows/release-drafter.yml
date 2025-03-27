@@ -21,17 +21,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
 
-      - name: Find Version
-        id: version
-        run: |
-          version=$(python -c "import json; print(json.load(open('custom_components/meteo_imgw_pib/manifest.json', 'rb'))['version'])")
-          echo Version from manifest.json: $version
-          echo "version=$version" >> $GITHUB_OUTPUT
-
       - name: Run Release Drafter
         uses: release-drafter/release-drafter@v6
-        with:
-          tag: ${{ steps.version.outputs.version }}
-          name: Version ${{ steps.version.outputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
