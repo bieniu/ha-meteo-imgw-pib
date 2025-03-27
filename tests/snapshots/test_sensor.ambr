@@ -157,7 +157,7 @@
       'attribution': 'Data provided by IMGW-PIB',
       'device_class': 'wind_direction',
       'friendly_name': 'Warszawa Wind direction',
-      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'state_class': <SensorStateClass.MEASUREMENT_ANGLE: 'measurement_angle'>,
       'unit_of_measurement': '°',
     }),
     'entity_id': 'sensor.warszawa_wind_direction',
