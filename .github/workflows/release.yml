@@ -15,6 +15,12 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Set package version
+        run: |
+          version="${{ github.event.release.tag_name }}"
+          cd "${{ github.workspace }}/custom_components/meteo_imgw_pib"
+          sed -i "s/\"version\": \".*\"/\"version\": \"${version}\"/" manifest.json
+
       - name: Create zipped release package
         shell: bash
         run: |
