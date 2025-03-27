@@ -13,11 +13,6 @@ jobs:
       pull-requests: read
     name: Release Drafter
     steps:
-      - name: Set up Python 3.13
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.13
-
       - name: Checkout the repository
         uses: actions/checkout@v4
 
