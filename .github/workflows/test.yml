@@ -15,14 +15,17 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up uv
-        uses: astral-sh/setup-uv@v5.4.0
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          enable-cache: true
           python-version: 3.13
+          cache: pip
+
+      - name: Install uv
+        run: pip install uv
 
       - name: Install dependencies
-        run: uv pip install tox tox-uv
+        run: uv pip install --system tox tox-uv
 
       - name: Test with tox
         run: tox

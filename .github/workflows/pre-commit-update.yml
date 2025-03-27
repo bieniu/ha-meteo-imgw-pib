@@ -15,14 +15,17 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up uv
-        uses: astral-sh/setup-uv@v5.4.0
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          enable-cache: true
           python-version: 3.13
+          cache: pip
+
+      - name: Install uv
+        run: pip install uv
 
       - name: Install pre-commit
-        run: uv pip install pre-commit
+        run: uv pip install --system pre-commit
 
       - name: Run pre-commit autoupdate
         run: pre-commit autoupdate
