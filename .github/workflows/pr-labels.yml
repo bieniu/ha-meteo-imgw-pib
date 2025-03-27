@@ -11,7 +11,7 @@ on:
 
 jobs:
   pr_labels:
-    name: Verify
+    name: Verify label
     runs-on: ubuntu-latest
     steps:
       - name: Verify PR has a valid label
