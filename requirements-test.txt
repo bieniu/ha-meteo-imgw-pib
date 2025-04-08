@@ -2,7 +2,7 @@ coverage
 homeassistant
 imgw_pib==1.0.10
 mypy==1.15.0
-pytest-cov==6.0.0
+pytest-cov==6.1.1
 pytest-error-for-skips==2.0.2
 pytest-homeassistant-custom-component==0.13.231
 pytest
