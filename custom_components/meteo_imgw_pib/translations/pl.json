@@ -1,12 +1,12 @@
 {
     "config": {
         "abort": {
-            "already_configured": "Us\u0142uga jest juz skonfigurowana",
-            "cannot_connect": "Nie mo\u017cna nawi\u0105za\u0107 po\u0142\u0105czenia"
+            "already_configured": "Usługa jest juz skonfigurowana",
+            "cannot_connect": "Nie można nawiązać połączenia"
         },
         "error": {
-            "cannot_connect": "Nie mo\u017cna nawi\u0105za\u0107 po\u0142\u0105czenia",
-            "unknown": "Nieoczekiwany b\u0142\u0105d"
+            "cannot_connect": "Nie można nawiązać połączenia",
+            "unknown": "Nieoczekiwany błąd"
         },
         "step": {
             "user": {
@@ -14,7 +14,7 @@
                     "station_id": "Stacja pogodowa"
                 },
                 "data_description": {
-                    "station_id": "Wybierz stacj\u0119 pogodow\u0105 z listy."
+                    "station_id": "Wybierz stację pogodową z listy."
                 }
             }
         }
