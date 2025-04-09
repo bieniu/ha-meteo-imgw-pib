@@ -12,6 +12,9 @@
             "user": {
                 "data": {
                     "station_id": "Stacja pogodowa"
+                },
+                "data_description": {
+                    "station_id": "Wybierz stację pogodową z listy."
                 }
             }
         }
