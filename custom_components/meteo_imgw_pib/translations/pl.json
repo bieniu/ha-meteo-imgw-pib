@@ -15,5 +15,13 @@
                 }
             }
         }
+    },
+    "exceptions": {
+        "cannot_connect": {
+            "message": "Wystąpił błąd podczas łączenia się z API IMGW-PIB dla {entry}"
+        },
+        "update_error": {
+            "message": "Wystąpił błąd podczas pobierania danych z API IMGW-PIB dla {entry}"
+        }
     }
 }

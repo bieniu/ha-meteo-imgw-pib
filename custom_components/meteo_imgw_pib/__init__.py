@@ -12,7 +12,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from imgw_pib import ImgwPib
 from imgw_pib.exceptions import ApiError
 
-from .const import CONF_STATION_ID
+from .const import CONF_STATION_ID, DOMAIN
 from .coordinator import (
     MeteoImgwPibConfigEntry,
     MeteoImgwPibData,
@@ -40,7 +40,11 @@ async def async_setup_entry(
             weather_station_id=station_id,
         )
     except (ClientError, TimeoutError, ApiError) as err:
-        raise ConfigEntryNotReady from err
+        raise ConfigEntryNotReady(
+            translation_domain=DOMAIN,
+            translation_key="cannot_connect",
+            translation_placeholders={"entry": entry.title},
+        ) from err
 
     coordinator = MeteoImgwPibDataUpdateCoordinator(hass, entry, imgwpib, station_id)
     await coordinator.async_config_entry_first_refresh()
