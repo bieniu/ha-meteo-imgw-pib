@@ -51,7 +51,11 @@ class MeteoImgwPibDataUpdateCoordinator(DataUpdateCoordinator[WeatherData]):
         try:
             return await self.imgwpib.get_weather_data()
         except ApiError as err:
-            raise UpdateFailed(err) from err
+            raise UpdateFailed(
+                translation_domain=DOMAIN,
+                translation_key="update_error",
+                translation_placeholders={"entry": self.config_entry.title},
+            ) from err
 
 
 @dataclass
