@@ -12,6 +12,9 @@
             "user": {
                 "data": {
                     "station_id": "Weather station"
+                },
+                "data_description": {
+                    "station_id": "Select a weather station from the list."
                 }
             }
         }
