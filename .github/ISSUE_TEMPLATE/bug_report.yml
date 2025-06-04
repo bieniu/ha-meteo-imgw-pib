@@ -22,12 +22,12 @@ body:
     validations:
       required: true
     attributes:
-      label: Home Assistant Version
+      label: Home Assistant
   - type: input
     validations:
       required: true
     attributes:
-      label: Meteo IMGW-PIB integration Version
+      label: Meteo IMGW-PIB integration
   - type: textarea
     attributes:
       label: Diagnostics information
