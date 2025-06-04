@@ -26,7 +26,7 @@ assignees: ''
 
 **Diagnostics:**
 <!--
-  Please provide the diagnostics https://www.home-assistant.io/docs/configuration/troubleshooting/#download-diagnostics
+  Please provide diagnostics https://www.home-assistant.io/docs/configuration/troubleshooting/#download-diagnostics
 -->
 
 
