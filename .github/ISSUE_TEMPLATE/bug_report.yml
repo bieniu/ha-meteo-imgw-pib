@@ -16,7 +16,8 @@ body:
         Provide a clear and concise description of what the problem is.
   - type: markdown
     attributes:
-      value: Versions
+      value: |
+        # Versions
   - type: input
     validations:
       required: true
