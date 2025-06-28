@@ -147,7 +147,7 @@
     }),
     'original_name': 'Wind direction',
     'platform': 'meteo_imgw_pib',
-    'translation_key': None,
+    'translation_key': 'wind_direction',
     'unique_id': '12200_wind_direction',
   })
 # ---
@@ -156,6 +156,7 @@
     'attributes': ReadOnlyDict({
       'attribution': 'Data provided by IMGW-PIB',
       'device_class': 'wind_direction',
+      'direction_name': 'nne',
       'friendly_name': 'Warszawa Wind direction',
       'state_class': <SensorStateClass.MEASUREMENT_ANGLE: 'measurement_angle'>,
       'unit_of_measurement': '°',

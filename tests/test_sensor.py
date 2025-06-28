@@ -2,12 +2,15 @@
 
 from unittest.mock import AsyncMock
 
+import pytest
 from pytest_homeassistant_custom_component.common import (
     HomeAssistant,
     MockConfigEntry,
     er,
 )
 from syrupy import SnapshotAssertion
+
+from custom_components.meteo_imgw_pib.sensor import _get_wind_direction
 
 from . import init_integration
 
@@ -47,3 +50,30 @@ async def test_sensor(
         for item in ("context", "last_changed", "last_reported", "last_updated"):
             state.pop(item)
         assert state == snapshot(name=f"{entity_entry.entity_id}-state")
+
+
+@pytest.mark.parametrize(
+    ("degree", "result"),
+    [
+        (0, "n"),
+        (30, "nne"),
+        (45, "ne"),
+        (70, "ene"),
+        (90, "e"),
+        (110, "ese"),
+        (135, "se"),
+        (160, "sse"),
+        (180, "s"),
+        (210, "ssw"),
+        (225, "sw"),
+        (250, "wsw"),
+        (270, "w"),
+        (300, "wnw"),
+        (315, "nw"),
+        (330, "nnw"),
+        (360, "n"),
+    ],
+)
+def test_get_wind_direction(degree: float, result: str) -> None:
+    """Test _get_wind_direction function."""
+    assert _get_wind_direction(degree) == result
