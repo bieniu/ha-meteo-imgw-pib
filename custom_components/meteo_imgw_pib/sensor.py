@@ -81,7 +81,9 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
         value=lambda data: data.wind_direction.value,
         attrs=lambda data: {
             "direction_name": _get_wind_direction(data.wind_direction.value)
-        },
+        }
+        if data.wind_direction.value is not None
+        else {},
     ),
     MeteoImgwPibSensorEntityDescription(
         key="precipitation",
