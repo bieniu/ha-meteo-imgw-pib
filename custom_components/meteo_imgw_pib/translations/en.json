@@ -26,5 +26,34 @@
         "update_error": {
             "message": "An error occurred while retrieving data from the IMGW-PIB API for {entry}"
         }
+    },
+    "entity": {
+        "sensor": {
+            "wind_direction": {
+                "state_attributes": {
+                    "direction_name": {
+                        "name": "Direction name",
+                        "state": {
+                            "e": "E",
+                            "ene": "ENE",
+                            "ese": "ESE",
+                            "n": "N",
+                            "ne": "NE",
+                            "nne": "NNE",
+                            "nnw": "NNW",
+                            "nw": "NW",
+                            "s": "S",
+                            "se": "SE",
+                            "sse": "SSE",
+                            "ssw": "SSW",
+                            "sw": "SW",
+                            "w": "W",
+                            "wnw": "WNW",
+                            "wsw": "WSW"
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -35,6 +35,7 @@ class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):
     """Meteo IMGW-PIB sensor entity description."""
 
     value: Callable[[WeatherData], StateType]
+    attrs: Callable[[WeatherData], dict[str, StateType]] | None = None
 
 
 SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
@@ -72,11 +73,15 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
     ),
     MeteoImgwPibSensorEntityDescription(
         key="wind_direction",
+        translation_key="wind_direction",
         native_unit_of_measurement=DEGREE,
         device_class=SensorDeviceClass.WIND_DIRECTION,
         state_class=SensorStateClass.MEASUREMENT_ANGLE,
         suggested_display_precision=0,
         value=lambda data: data.wind_direction.value,
+        attrs=lambda data: {
+            "direction_name": _get_wind_direction(data.wind_direction.value)
+        },
     ),
     MeteoImgwPibSensorEntityDescription(
         key="precipitation",
@@ -124,3 +129,46 @@ class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""
         return self.entity_description.value(self.coordinator.data)
+
+    @property
+    def extra_state_attributes(self) -> dict[str, StateType]:
+        """Return the state attributes."""
+        if self.entity_description.attrs:
+            return self.entity_description.attrs(self.coordinator.data)
+
+        return {}
+
+
+def _get_wind_direction(wind_direction_degree: float) -> str:  # noqa: PLR0911,PLR0912
+    """Convert wind direction degree to named direction."""
+    if 11.25 <= wind_direction_degree < 33.75:  # noqa: PLR2004
+        return "nne"
+    if 33.75 <= wind_direction_degree < 56.25:  # noqa: PLR2004
+        return "ne"
+    if 56.25 <= wind_direction_degree < 78.75:  # noqa: PLR2004
+        return "ene"
+    if 78.75 <= wind_direction_degree < 101.25:  # noqa: PLR2004
+        return "e"
+    if 101.25 <= wind_direction_degree < 123.75:  # noqa: PLR2004
+        return "ese"
+    if 123.75 <= wind_direction_degree < 146.25:  # noqa: PLR2004
+        return "se"
+    if 146.25 <= wind_direction_degree < 168.75:  # noqa: PLR2004
+        return "sse"
+    if 168.75 <= wind_direction_degree < 191.25:  # noqa: PLR2004
+        return "s"
+    if 191.25 <= wind_direction_degree < 213.75:  # noqa: PLR2004
+        return "ssw"
+    if 213.75 <= wind_direction_degree < 236.25:  # noqa: PLR2004
+        return "sw"
+    if 236.25 <= wind_direction_degree < 258.75:  # noqa: PLR2004
+        return "wsw"
+    if 258.75 <= wind_direction_degree < 281.25:  # noqa: PLR2004
+        return "w"
+    if 281.25 <= wind_direction_degree < 303.75:  # noqa: PLR2004
+        return "wnw"
+    if 303.75 <= wind_direction_degree < 326.25:  # noqa: PLR2004
+        return "nw"
+    if 326.25 <= wind_direction_degree < 348.75:  # noqa: PLR2004
+        return "nnw"
+    return "n"
