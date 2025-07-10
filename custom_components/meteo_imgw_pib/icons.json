@@ -1,9 +1,9 @@
 {
-  "entity": {
-    "sensor": {
-      "warning": {
-        "default": "mdi:alert-outline"
-      }
+    "entity": {
+        "sensor": {
+            "warning": {
+                "default": "mdi:alert-outline"
+            }
+        }
     }
-  }
 }
