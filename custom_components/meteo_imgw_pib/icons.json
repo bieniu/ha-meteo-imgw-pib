@@ -1,0 +1,9 @@
+{
+  "entity": {
+    "sensor": {
+      "warning": {
+        "default": "mdi:alert-outline"
+      }
+    }
+  }
+}

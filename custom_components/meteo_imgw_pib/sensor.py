@@ -38,6 +38,18 @@ class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):
     attrs: Callable[[WeatherData], dict[str, StateType]] | None = None
 
 
+WARNING_SENSOR = MeteoImgwPibSensorEntityDescription(
+    key="warning",
+    translation_key="warning",
+    value=lambda data: data.warning.event if data.warning else None,
+    attrs=lambda data: {
+            "valid_from":  data.warning.valid_from,
+            "valid_to":  data.warning.valid_to,
+            "probability": data.warning.probability,
+        }
+        if data.warning is not None
+        else {},
+)
 SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
     MeteoImgwPibSensorEntityDescription(
         key="temperature",
@@ -104,11 +116,14 @@ async def async_setup_entry(
     """Add a Meteo IMGW-PIB sensor entity from a config_entry."""
     coordinator = entry.runtime_data.coordinator
 
-    async_add_entities(
+    entities = [
         MeteoImgwPibSensorEntity(coordinator, description)
         for description in SENSOR_TYPES
         if getattr(coordinator.data, description.key).value is not None
-    )
+    ]
+    entities.append(MeteoImgwPibSensorEntity(coordinator, WARNING_SENSOR))
+
+    async_add_entities(entities)
 
 
 class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
