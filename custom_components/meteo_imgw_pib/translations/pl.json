@@ -1,73 +1,73 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Us\u0142uga jest juz skonfigurowana",
-      "cannot_connect": "Nie mo\u017cna nawi\u0105za\u0107 po\u0142\u0105czenia"
-    },
-    "error": {
-      "cannot_connect": "Nie mo\u017cna nawi\u0105za\u0107 po\u0142\u0105czenia",
-      "unknown": "Nieoczekiwany b\u0142\u0105d"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "station_id": "Stacja pogodowa"
+    "config": {
+        "abort": {
+            "already_configured": "Us\u0142uga jest juz skonfigurowana",
+            "cannot_connect": "Nie mo\u017cna nawi\u0105za\u0107 po\u0142\u0105czenia"
         },
-        "data_description": {
-          "station_id": "Wybierz stacj\u0119 pogodow\u0105 z listy."
-        }
-      }
-    }
-  },
-  "exceptions": {
-    "cannot_connect": {
-      "message": "Wyst\u0105pi\u0142 b\u0142\u0105d podczas \u0142\u0105czenia si\u0119 z API IMGW-PIB dla {entry}"
-    },
-    "update_error": {
-      "message": "Wyst\u0105pi\u0142 b\u0142\u0105d podczas pobierania danych z API IMGW-PIB dla {entry}"
-    }
-  },
-  "entity": {
-    "sensor": {
-      "warning": {
-        "name": "Alert pogodowy",
-        "state_attributes": {
-          "probability": {
-            "name": "Prawdopodobieństwo"
-          },
-          "valid_from": {
-            "name": "Obowiązuje od"
-          },
-          "valid_to": {
-            "name": "Obowiązuje do"
-          }
-        }
-      },
-      "wind_direction": {
-        "state_attributes": {
-          "direction_name": {
-            "name": "Nazwa kierunku",
-            "state": {
-              "e": "wsch.",
-              "ene": "wsch. p\u0142n.-wsch.",
-              "ese": "wsch. p\u0142d.-wsch.",
-              "n": "p\u0142n.",
-              "ne": "p\u0142n.-wsch.",
-              "nne": "p\u0142n. p\u0142n.-wsch.",
-              "nnw": "p\u0142n. p\u0142n.-zach.",
-              "nw": "p\u0142n.-zach.",
-              "s": "p\u0142d.",
-              "se": "p\u0142d.-wsch.",
-              "sse": "p\u0142d. p\u0142d.-wsch.",
-              "ssw": "p\u0142d. p\u0142d.-zach.",
-              "sw": "p\u0142d.-zach.",
-              "w": "zach.",
-              "wnw": "zach. p\u0142n.-zach.",
-              "wsw": "zach. p\u0142d.-zach."
+        "error": {
+            "cannot_connect": "Nie mo\u017cna nawi\u0105za\u0107 po\u0142\u0105czenia",
+            "unknown": "Nieoczekiwany b\u0142\u0105d"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "station_id": "Stacja pogodowa"
+                },
+                "data_description": {
+                    "station_id": "Wybierz stacj\u0119 pogodow\u0105 z listy."
+                }
             }
-          }
         }
-      }
+    },
+    "exceptions": {
+        "cannot_connect": {
+            "message": "Wyst\u0105pi\u0142 b\u0142\u0105d podczas \u0142\u0105czenia si\u0119 z API IMGW-PIB dla {entry}"
+        },
+        "update_error": {
+            "message": "Wyst\u0105pi\u0142 b\u0142\u0105d podczas pobierania danych z API IMGW-PIB dla {entry}"
+        }
+    },
+    "entity": {
+        "sensor": {
+            "warning": {
+                "name": "Alert pogodowy",
+                "state_attributes": {
+                    "probability": {
+                        "name": "Prawdopodobie\u0144stwo"
+                    },
+                    "valid_from": {
+                        "name": "Obowi\u0105zuje od"
+                    },
+                    "valid_to": {
+                        "name": "Obowi\u0105zuje do"
+                    }
+                }
+            },
+            "wind_direction": {
+                "state_attributes": {
+                    "direction_name": {
+                        "name": "Nazwa kierunku",
+                        "state": {
+                            "e": "wsch.",
+                            "ene": "wsch. p\u0142n.-wsch.",
+                            "ese": "wsch. p\u0142d.-wsch.",
+                            "n": "p\u0142n.",
+                            "ne": "p\u0142n.-wsch.",
+                            "nne": "p\u0142n. p\u0142n.-wsch.",
+                            "nnw": "p\u0142n. p\u0142n.-zach.",
+                            "nw": "p\u0142n.-zach.",
+                            "s": "p\u0142d.",
+                            "se": "p\u0142d.-wsch.",
+                            "sse": "p\u0142d. p\u0142d.-wsch.",
+                            "ssw": "p\u0142d. p\u0142d.-zach.",
+                            "sw": "p\u0142d.-zach.",
+                            "w": "zach.",
+                            "wnw": "zach. p\u0142n.-zach.",
+                            "wsw": "zach. p\u0142d.-zach."
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
 }

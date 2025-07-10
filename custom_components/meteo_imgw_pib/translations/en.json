@@ -1,73 +1,73 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Service is already configured",
-      "cannot_connect": "Failed to connect"
-    },
-    "error": {
-      "cannot_connect": "Failed to connect",
-      "unknown": "Unexpected error"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "station_id": "Weather station"
+    "config": {
+        "abort": {
+            "already_configured": "Service is already configured",
+            "cannot_connect": "Failed to connect"
         },
-        "data_description": {
-          "station_id": "Select a weather station from the list."
-        }
-      }
-    }
-  },
-  "exceptions": {
-    "cannot_connect": {
-      "message": "An error occurred while connecting to the IMGW-PIB API for {entry}"
-    },
-    "update_error": {
-      "message": "An error occurred while retrieving data from the IMGW-PIB API for {entry}"
-    }
-  },
-  "entity": {
-    "sensor": {
-      "warning": {
-        "name": "Weather alert",
-        "state_attributes": {
-          "probability": {
-            "name": "Probability"
-          },
-          "valid_from": {
-            "name": "Valid from"
-          },
-          "valid_to": {
-            "name": "Valid to"
-          }
-        }
-      },
-      "wind_direction": {
-        "state_attributes": {
-          "direction_name": {
-            "name": "Direction name",
-            "state": {
-              "e": "E",
-              "ene": "ENE",
-              "ese": "ESE",
-              "n": "N",
-              "ne": "NE",
-              "nne": "NNE",
-              "nnw": "NNW",
-              "nw": "NW",
-              "s": "S",
-              "se": "SE",
-              "sse": "SSE",
-              "ssw": "SSW",
-              "sw": "SW",
-              "w": "W",
-              "wnw": "WNW",
-              "wsw": "WSW"
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "station_id": "Weather station"
+                },
+                "data_description": {
+                    "station_id": "Select a weather station from the list."
+                }
             }
-          }
         }
-      }
+    },
+    "exceptions": {
+        "cannot_connect": {
+            "message": "An error occurred while connecting to the IMGW-PIB API for {entry}"
+        },
+        "update_error": {
+            "message": "An error occurred while retrieving data from the IMGW-PIB API for {entry}"
+        }
+    },
+    "entity": {
+        "sensor": {
+            "warning": {
+                "name": "Weather alert",
+                "state_attributes": {
+                    "probability": {
+                        "name": "Probability"
+                    },
+                    "valid_from": {
+                        "name": "Valid from"
+                    },
+                    "valid_to": {
+                        "name": "Valid to"
+                    }
+                }
+            },
+            "wind_direction": {
+                "state_attributes": {
+                    "direction_name": {
+                        "name": "Direction name",
+                        "state": {
+                            "e": "E",
+                            "ene": "ENE",
+                            "ese": "ESE",
+                            "n": "N",
+                            "ne": "NE",
+                            "nne": "NNE",
+                            "nnw": "NNW",
+                            "nw": "NW",
+                            "s": "S",
+                            "se": "SE",
+                            "sse": "SSE",
+                            "ssw": "SSW",
+                            "sw": "SW",
+                            "w": "W",
+                            "wnw": "WNW",
+                            "wsw": "WSW"
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
 }
