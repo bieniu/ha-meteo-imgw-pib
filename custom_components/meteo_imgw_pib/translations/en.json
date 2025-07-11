@@ -37,6 +37,21 @@
                     "none": "None"
                 },
                 "state_attributes": {
+                    "level": {
+                        "name": "Level",
+                        "state": {
+                            "orange": "Orange",
+                            "red": "Red",
+                            "yellow": "Yellow"
+                        }
+                    },
+                    "options": {
+                        "state": {
+                            "heavy_rainfall": "Heavy rainfall",
+                            "strong_wind": "Strong wind",
+                            "none": "None"
+                        }
+                    },
                     "probability": {
                         "name": "Probability"
                     },

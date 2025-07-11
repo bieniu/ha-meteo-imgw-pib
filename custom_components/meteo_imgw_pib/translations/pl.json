@@ -37,6 +37,14 @@
                     "none": "brak"
                 },
                 "state_attributes": {
+                    "level": {
+                        "name": "Stopie\u0144",
+                        "state": {
+                            "orange": "pomara\u0144czowy",
+                            "red": "czerwony",
+                            "yellow": "\u017c\u00f3\u0142ty"
+                        }
+                    },
                     "options": {
                         "state": {
                             "heavy_rainfall": "intensywne opady deszczu",

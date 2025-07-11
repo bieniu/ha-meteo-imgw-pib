@@ -46,9 +46,10 @@ WEATHER_ALERT_DESCRIPTION = MeteoImgwPibSensorEntityDescription(
     options=[*WEATHER_WARNINGS_MAP.values(), "none"],
     value=lambda data: data.warning.event if data.warning else "none",
     attrs=lambda data: {
+        "level": data.warning.level,
+        "probability": data.warning.probability,
         "valid_from": data.warning.valid_from,
         "valid_to": data.warning.valid_to,
-        "probability": data.warning.probability,
     }
     if data.warning is not None
     else {},
