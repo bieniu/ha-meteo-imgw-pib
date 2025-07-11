@@ -154,14 +154,18 @@
       'attribution': 'Data provided by IMGW-PIB',
       'device_class': 'enum',
       'friendly_name': 'Warszawa Weather alert',
+      'level': 'yellow',
       'options': list([
         'heavy_rainfall',
         'strong_wind',
         'none',
       ]),
+      'probability': 80,
+      'valid_from': datetime.datetime(2025, 7, 11, 14, 0, tzinfo=zoneinfo.ZoneInfo(key='Europe/Warsaw')),
+      'valid_to': datetime.datetime(2025, 7, 11, 22, 0, tzinfo=zoneinfo.ZoneInfo(key='Europe/Warsaw')),
     }),
     'entity_id': 'sensor.warszawa_weather_alert',
-    'state': 'none',
+    'state': 'strong_wind',
   })
 # ---
 # name: test_sensor[sensor.warszawa_wind_direction-entry]
