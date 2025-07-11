@@ -131,6 +131,39 @@
     'state': '12.5',
   })
 # ---
+# name: test_sensor[sensor.warszawa_weather_alert-entry]
+  dict({
+    'config_subentry_id': None,
+    'disabled_by': None,
+    'entity_category': None,
+    'entity_id': 'sensor.warszawa_weather_alert',
+    'has_entity_name': True,
+    'icon': None,
+    'name': None,
+    'options': ReadOnlyDict({
+    }),
+    'original_name': 'Weather alert',
+    'platform': 'meteo_imgw_pib',
+    'translation_key': 'weather_alert',
+    'unique_id': '12200_weather_alert',
+  })
+# ---
+# name: test_sensor[sensor.warszawa_weather_alert-state]
+  dict({
+    'attributes': ReadOnlyDict({
+      'attribution': 'Data provided by IMGW-PIB',
+      'device_class': 'enum',
+      'friendly_name': 'Warszawa Weather alert',
+      'options': list([
+        'heavy_rainfall',
+        'strong_wind',
+        'none',
+      ]),
+    }),
+    'entity_id': 'sensor.warszawa_weather_alert',
+    'state': 'none',
+  })
+# ---
 # name: test_sensor[sensor.warszawa_wind_direction-entry]
   dict({
     'config_subentry_id': None,
