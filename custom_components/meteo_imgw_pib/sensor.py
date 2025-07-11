@@ -22,7 +22,7 @@ from homeassistant.const import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.typing import StateType
-from imgw_pib.const import WEATHER_WARNINGS_MAP
+from imgw_pib.const import WEATHER_ALERTS_MAP
 from imgw_pib.model import WeatherData
 
 from .coordinator import MeteoImgwPibConfigEntry, MeteoImgwPibDataUpdateCoordinator
@@ -43,15 +43,15 @@ WEATHER_ALERT_DESCRIPTION = MeteoImgwPibSensorEntityDescription(
     key="weather_alert",
     translation_key="weather_alert",
     device_class=SensorDeviceClass.ENUM,
-    options=[*WEATHER_WARNINGS_MAP.values(), "none"],
-    value=lambda data: data.warning.event if data.warning else "none",
+    options=[*WEATHER_ALERTS_MAP.values(), "none"],
+    value=lambda data: data.alert.event if data.alert else "none",
     attrs=lambda data: {
-        "level": data.warning.level,
-        "probability": data.warning.probability,
-        "valid_from": data.warning.valid_from,
-        "valid_to": data.warning.valid_to,
+        "level": data.alert.level,
+        "probability": data.alert.probability,
+        "valid_from": data.alert.valid_from,
+        "valid_to": data.alert.valid_to,
     }
-    if data.warning is not None
+    if data.alert is not None
     else {},
 )
 SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
