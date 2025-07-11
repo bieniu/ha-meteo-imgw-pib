@@ -29,8 +29,13 @@
     },
     "entity": {
         "sensor": {
-            "warning": {
+            "weather_alert": {
                 "name": "Weather alert",
+                "state": {
+                    "heavy_rainfall": "Heavy rainfall",
+                    "strong_wind": "Strong wind",
+                    "none": "None"
+                },
                 "state_attributes": {
                     "probability": {
                         "name": "Probability"

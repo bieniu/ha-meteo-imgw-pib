@@ -29,9 +29,21 @@
     },
     "entity": {
         "sensor": {
-            "warning": {
+            "weather_alert": {
                 "name": "Alert pogodowy",
+                "state": {
+                    "heavy_rainfall": "intensywne opady deszczu",
+                    "strong_wind": "silny wiatr",
+                    "none": "brak"
+                },
                 "state_attributes": {
+                    "options": {
+                        "state": {
+                            "heavy_rainfall": "intensywne opady deszczu",
+                            "strong_wind": "silny wiatr",
+                            "none": "brak"
+                        }
+                    },
                     "probability": {
                         "name": "Prawdopodobie\u0144stwo"
                     },

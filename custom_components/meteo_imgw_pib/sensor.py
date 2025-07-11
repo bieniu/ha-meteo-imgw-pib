@@ -22,6 +22,7 @@ from homeassistant.const import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.typing import StateType
+from imgw_pib.const import WEATHER_WARNINGS_MAP
 from imgw_pib.model import WeatherData
 
 from .coordinator import MeteoImgwPibConfigEntry, MeteoImgwPibDataUpdateCoordinator
@@ -38,17 +39,19 @@ class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):
     attrs: Callable[[WeatherData], dict[str, StateType]] | None = None
 
 
-WARNING_SENSOR = MeteoImgwPibSensorEntityDescription(
-    key="warning",
-    translation_key="warning",
-    value=lambda data: data.warning.event if data.warning else None,
+WEATHER_ALERT_DESCRIPTION = MeteoImgwPibSensorEntityDescription(
+    key="weather_alert",
+    translation_key="weather_alert",
+    device_class=SensorDeviceClass.ENUM,
+    options=[*WEATHER_WARNINGS_MAP.values(), "none"],
+    value=lambda data: data.warning.event if data.warning else "none",
     attrs=lambda data: {
-            "valid_from":  data.warning.valid_from,
-            "valid_to":  data.warning.valid_to,
-            "probability": data.warning.probability,
-        }
-        if data.warning is not None
-        else {},
+        "valid_from": data.warning.valid_from,
+        "valid_to": data.warning.valid_to,
+        "probability": data.warning.probability,
+    }
+    if data.warning is not None
+    else {},
 )
 SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
     MeteoImgwPibSensorEntityDescription(
@@ -117,11 +120,13 @@ async def async_setup_entry(
     coordinator = entry.runtime_data.coordinator
 
     entities = [
-        MeteoImgwPibSensorEntity(coordinator, description)
-        for description in SENSOR_TYPES
-        if getattr(coordinator.data, description.key).value is not None
+        *(
+            MeteoImgwPibSensorEntity(coordinator, description)
+            for description in SENSOR_TYPES
+            if getattr(coordinator.data, description.key).value is not None
+        ),
+        MeteoImgwPibSensorEntity(coordinator, WEATHER_ALERT_DESCRIPTION),
     ]
-    entities.append(MeteoImgwPibSensorEntity(coordinator, WARNING_SENSOR))
 
     async_add_entities(entities)
 
