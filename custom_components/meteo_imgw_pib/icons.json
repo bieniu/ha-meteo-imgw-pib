@@ -1,0 +1,9 @@
+{
+    "entity": {
+        "sensor": {
+            "weather_alert": {
+                "default": "mdi:alert-outline"
+            }
+        }
+    }
+}
