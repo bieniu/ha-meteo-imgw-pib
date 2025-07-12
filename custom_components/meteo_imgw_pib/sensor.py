@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import Any
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -36,7 +37,7 @@ class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):
     """Meteo IMGW-PIB sensor entity description."""
 
     value: Callable[[WeatherData], StateType]
-    attrs: Callable[[WeatherData], dict[str, StateType]] | None = None
+    attrs: Callable[[WeatherData], dict[str, Any] | None] | None = None
 
 
 WEATHER_ALERT_DESCRIPTION = MeteoImgwPibSensorEntityDescription(
@@ -51,8 +52,8 @@ WEATHER_ALERT_DESCRIPTION = MeteoImgwPibSensorEntityDescription(
         "valid_from": data.alert.valid_from,
         "valid_to": data.alert.valid_to,
     }
-    if data.alert is not None
-    else {},
+    if data.alert
+    else None,
 )
 SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
     MeteoImgwPibSensorEntityDescription(
@@ -99,7 +100,7 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
             "direction_name": _get_wind_direction(data.wind_direction.value)
         }
         if data.wind_direction.value is not None
-        else {},
+        else None,
     ),
     MeteoImgwPibSensorEntityDescription(
         key="precipitation",
@@ -154,12 +155,12 @@ class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
         return self.entity_description.value(self.coordinator.data)
 
     @property
-    def extra_state_attributes(self) -> dict[str, StateType]:
+    def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes."""
         if self.entity_description.attrs:
             return self.entity_description.attrs(self.coordinator.data)
 
-        return {}
+        return None
 
 
 def _get_wind_direction(wind_direction_degree: float) -> str:  # noqa: PLR0911,PLR0912
