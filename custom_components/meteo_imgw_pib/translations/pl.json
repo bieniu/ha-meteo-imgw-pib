@@ -29,6 +29,42 @@
     },
     "entity": {
         "sensor": {
+            "weather_alert": {
+                "name": "Alert pogodowy",
+                "state": {
+                    "heavy_rainfall": "intensywne opady deszczu",
+                    "storms": "burze",
+                    "strong_wind": "silny wiatr",
+                    "none": "brak"
+                },
+                "state_attributes": {
+                    "level": {
+                        "name": "Stopie\u0144",
+                        "state": {
+                            "orange": "pomara\u0144czowy",
+                            "red": "czerwony",
+                            "yellow": "\u017c\u00f3\u0142ty"
+                        }
+                    },
+                    "options": {
+                        "state": {
+                            "heavy_rainfall": "intensywne opady deszczu",
+                            "storms": "burze",
+                            "strong_wind": "silny wiatr",
+                            "none": "brak"
+                        }
+                    },
+                    "probability": {
+                        "name": "Prawdopodobie\u0144stwo"
+                    },
+                    "valid_from": {
+                        "name": "Obowi\u0105zuje od"
+                    },
+                    "valid_to": {
+                        "name": "Obowi\u0105zuje do"
+                    }
+                }
+            },
             "wind_direction": {
                 "state_attributes": {
                     "direction_name": {

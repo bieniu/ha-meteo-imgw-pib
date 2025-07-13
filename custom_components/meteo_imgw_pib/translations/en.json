@@ -29,6 +29,42 @@
     },
     "entity": {
         "sensor": {
+            "weather_alert": {
+                "name": "Weather alert",
+                "state": {
+                    "heavy_rainfall": "Heavy rainfall",
+                    "storms": "Storms",
+                    "strong_wind": "Strong wind",
+                    "none": "None"
+                },
+                "state_attributes": {
+                    "level": {
+                        "name": "Level",
+                        "state": {
+                            "orange": "Orange",
+                            "red": "Red",
+                            "yellow": "Yellow"
+                        }
+                    },
+                    "options": {
+                        "state": {
+                            "heavy_rainfall": "Heavy rainfall",
+                            "storms": "Storms",
+                            "strong_wind": "Strong wind",
+                            "none": "None"
+                        }
+                    },
+                    "probability": {
+                        "name": "Probability"
+                    },
+                    "valid_from": {
+                        "name": "Valid from"
+                    },
+                    "valid_to": {
+                        "name": "Valid to"
+                    }
+                }
+            },
             "wind_direction": {
                 "state_attributes": {
                     "direction_name": {

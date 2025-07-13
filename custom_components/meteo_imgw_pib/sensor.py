@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import Any
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -22,6 +23,7 @@ from homeassistant.const import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.typing import StateType
+from imgw_pib.const import WEATHER_ALERTS_MAP
 from imgw_pib.model import WeatherData
 
 from .coordinator import MeteoImgwPibConfigEntry, MeteoImgwPibDataUpdateCoordinator
@@ -35,9 +37,24 @@ class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):
     """Meteo IMGW-PIB sensor entity description."""
 
     value: Callable[[WeatherData], StateType]
-    attrs: Callable[[WeatherData], dict[str, StateType]] | None = None
+    attrs: Callable[[WeatherData], dict[str, Any] | None] | None = None
 
 
+WEATHER_ALERT_DESCRIPTION = MeteoImgwPibSensorEntityDescription(
+    key="weather_alert",
+    translation_key="weather_alert",
+    device_class=SensorDeviceClass.ENUM,
+    options=[*WEATHER_ALERTS_MAP.values(), "none"],
+    value=lambda data: data.alert.event if data.alert else "none",
+    attrs=lambda data: {
+        "level": data.alert.level,
+        "probability": data.alert.probability,
+        "valid_from": data.alert.valid_from,
+        "valid_to": data.alert.valid_to,
+    }
+    if data.alert
+    else None,
+)
 SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
     MeteoImgwPibSensorEntityDescription(
         key="temperature",
@@ -83,7 +100,7 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
             "direction_name": _get_wind_direction(data.wind_direction.value)
         }
         if data.wind_direction.value is not None
-        else {},
+        else None,
     ),
     MeteoImgwPibSensorEntityDescription(
         key="precipitation",
@@ -104,11 +121,16 @@ async def async_setup_entry(
     """Add a Meteo IMGW-PIB sensor entity from a config_entry."""
     coordinator = entry.runtime_data.coordinator
 
-    async_add_entities(
-        MeteoImgwPibSensorEntity(coordinator, description)
-        for description in SENSOR_TYPES
-        if getattr(coordinator.data, description.key).value is not None
-    )
+    entities = [
+        *(
+            MeteoImgwPibSensorEntity(coordinator, description)
+            for description in SENSOR_TYPES
+            if getattr(coordinator.data, description.key).value is not None
+        ),
+        MeteoImgwPibSensorEntity(coordinator, WEATHER_ALERT_DESCRIPTION),
+    ]
+
+    async_add_entities(entities)
 
 
 class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
@@ -133,12 +155,12 @@ class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
         return self.entity_description.value(self.coordinator.data)
 
     @property
-    def extra_state_attributes(self) -> dict[str, StateType]:
+    def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes."""
         if self.entity_description.attrs:
             return self.entity_description.attrs(self.coordinator.data)
 
-        return {}
+        return None
 
 
 def _get_wind_direction(wind_direction_degree: float) -> str:  # noqa: PLR0911,PLR0912
