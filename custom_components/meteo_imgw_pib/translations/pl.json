@@ -33,6 +33,7 @@
                 "name": "Alert pogodowy",
                 "state": {
                     "heavy_rainfall": "intensywne opady deszczu",
+                    "storms": "burze",
                     "strong_wind": "silny wiatr",
                     "none": "brak"
                 },
@@ -48,6 +49,7 @@
                     "options": {
                         "state": {
                             "heavy_rainfall": "intensywne opady deszczu",
+                            "storms": "burze",
                             "strong_wind": "silny wiatr",
                             "none": "brak"
                         }

@@ -33,6 +33,7 @@
                 "name": "Weather alert",
                 "state": {
                     "heavy_rainfall": "Heavy rainfall",
+                    "storms": "Storms",
                     "strong_wind": "Strong wind",
                     "none": "None"
                 },
@@ -48,6 +49,7 @@
                     "options": {
                         "state": {
                             "heavy_rainfall": "Heavy rainfall",
+                            "storms": "Storms",
                             "strong_wind": "Strong wind",
                             "none": "None"
                         }
