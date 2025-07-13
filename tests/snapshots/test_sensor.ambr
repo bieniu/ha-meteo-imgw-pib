@@ -156,6 +156,7 @@
       'friendly_name': 'Warszawa Weather alert',
       'level': 'yellow',
       'options': list([
+        'storms',
         'heavy_rainfall',
         'strong_wind',
         'none',
