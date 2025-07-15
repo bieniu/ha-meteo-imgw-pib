@@ -7,7 +7,7 @@ from unittest.mock import AsyncMock, Mock, patch
 from zoneinfo import ZoneInfo
 
 import pytest
-from imgw_pib.model import SensorData, WeatherAlert, WeatherData
+from imgw_pib.model import Alert, SensorData, WeatherData
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from syrupy.assertion import SnapshotAssertion
 from syrupy.extensions.amber import AmberSnapshotExtension
@@ -25,8 +25,8 @@ WEATHER_DATA = WeatherData(
     station="Warszawa",
     station_id="12200",
     measurement_date=None,
-    alert=WeatherAlert(
-        event="strong_wind",
+    weather_alert=Alert(
+        value="strong_wind",
         level="yellow",
         probability=80,
         valid_from=datetime.strptime("2025-07-11 14:00", "%Y-%m-%d %H:%M").replace(

@@ -23,13 +23,13 @@ from homeassistant.const import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.typing import StateType
-from imgw_pib.const import WEATHER_ALERTS_MAP
+from imgw_pib.const import NO_ALERT, WEATHER_ALERTS_MAP
 from imgw_pib.model import WeatherData
 
 from .coordinator import MeteoImgwPibConfigEntry, MeteoImgwPibDataUpdateCoordinator
 from .entity import MeteoImgwPibEntity
 
-PARALLEL_UPDATES = 1
+PARALLEL_UPDATES = 0
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -40,22 +40,22 @@ class MeteoImgwPibSensorEntityDescription(SensorEntityDescription):
     attrs: Callable[[WeatherData], dict[str, Any] | None] | None = None
 
 
-WEATHER_ALERT_DESCRIPTION = MeteoImgwPibSensorEntityDescription(
-    key="weather_alert",
-    translation_key="weather_alert",
-    device_class=SensorDeviceClass.ENUM,
-    options=[*WEATHER_ALERTS_MAP.values(), "none"],
-    value=lambda data: data.alert.event if data.alert else "none",
-    attrs=lambda data: {
-        "level": data.alert.level,
-        "probability": data.alert.probability,
-        "valid_from": data.alert.valid_from,
-        "valid_to": data.alert.valid_to,
-    }
-    if data.alert
-    else None,
-)
 SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
+    MeteoImgwPibSensorEntityDescription(
+        key="weather_alert",
+        translation_key="weather_alert",
+        device_class=SensorDeviceClass.ENUM,
+        options=list(WEATHER_ALERTS_MAP.values()),
+        value=lambda data: data.weather_alert.value,
+        attrs=lambda data: {
+            "level": data.weather_alert.level,
+            "probability": data.weather_alert.probability,
+            "valid_from": data.weather_alert.valid_from,
+            "valid_to": data.weather_alert.valid_to,
+        }
+        if data.weather_alert.value != NO_ALERT
+        else None,
+    ),
     MeteoImgwPibSensorEntityDescription(
         key="temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -121,16 +121,11 @@ async def async_setup_entry(
     """Add a Meteo IMGW-PIB sensor entity from a config_entry."""
     coordinator = entry.runtime_data.coordinator
 
-    entities = [
-        *(
-            MeteoImgwPibSensorEntity(coordinator, description)
-            for description in SENSOR_TYPES
-            if getattr(coordinator.data, description.key).value is not None
-        ),
-        MeteoImgwPibSensorEntity(coordinator, WEATHER_ALERT_DESCRIPTION),
-    ]
-
-    async_add_entities(entities)
+    async_add_entities(
+        MeteoImgwPibSensorEntity(coordinator, description)
+        for description in SENSOR_TYPES
+        if getattr(coordinator.data, description.key).value is not None
+    )
 
 
 class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):

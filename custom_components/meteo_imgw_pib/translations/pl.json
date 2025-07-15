@@ -32,15 +32,17 @@
             "weather_alert": {
                 "name": "Alert pogodowy",
                 "state": {
+                    "heavy_rain_with_storms": "silny deszcz z burzami",
                     "heavy_rainfall": "intensywne opady deszczu",
+                    "no_alert": "brak",
                     "storms": "burze",
-                    "strong_wind": "silny wiatr",
-                    "none": "brak"
+                    "strong_wind": "silny wiatr"
                 },
                 "state_attributes": {
                     "level": {
                         "name": "Stopie\u0144",
                         "state": {
+                            "none": "brak",
                             "orange": "pomara\u0144czowy",
                             "red": "czerwony",
                             "yellow": "\u017c\u00f3\u0142ty"
@@ -48,10 +50,11 @@
                     },
                     "options": {
                         "state": {
+                            "heavy_rain_with_storms": "silny deszcz z burzami",
                             "heavy_rainfall": "intensywne opady deszczu",
+                            "no_alert": "brak",
                             "storms": "burze",
-                            "strong_wind": "silny wiatr",
-                            "none": "brak"
+                            "strong_wind": "silny wiatr"
                         }
                     },
                     "probability": {
