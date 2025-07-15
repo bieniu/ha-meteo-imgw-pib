@@ -53,7 +53,7 @@ version-resolver:
   default: patch
 
 template: |
-  [![Downloads for this release](https://img.shields.io/github/downloads/bieniu/ha-meteo-imgw-pib/$RESOLVED_VERSION/total.svg)](https://github.com/bieniuha-meteo-imgw-pib/releases/$RESOLVED_VERSION)
+  [![Downloads for this release](https://img.shields.io/github/downloads/bieniu/ha-meteo-imgw-pib/$RESOLVED_VERSION/total.svg)](https://github.com/bieniu/ha-meteo-imgw-pib/releases/$RESOLVED_VERSION)
 
   ## What's changed
   
