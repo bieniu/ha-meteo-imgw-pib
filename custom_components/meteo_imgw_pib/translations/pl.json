@@ -32,10 +32,11 @@
             "weather_alert": {
                 "name": "Alert pogodowy",
                 "state": {
+                    "heavy_rain_with_storms": "silny deszcz z burzami",
                     "heavy_rainfall": "intensywne opady deszczu",
+                    "none": "brak",
                     "storms": "burze",
-                    "strong_wind": "silny wiatr",
-                    "none": "brak"
+                    "strong_wind": "silny wiatr"
                 },
                 "state_attributes": {
                     "level": {
@@ -48,10 +49,11 @@
                     },
                     "options": {
                         "state": {
+                            "heavy_rain_with_storms": "silny deszcz z burzami",
                             "heavy_rainfall": "intensywne opady deszczu",
+                            "none": "brak",
                             "storms": "burze",
-                            "strong_wind": "silny wiatr",
-                            "none": "brak"
+                            "strong_wind": "silny wiatr"
                         }
                     },
                     "probability": {

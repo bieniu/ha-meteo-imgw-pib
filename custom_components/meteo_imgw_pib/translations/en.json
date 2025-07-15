@@ -32,10 +32,11 @@
             "weather_alert": {
                 "name": "Weather alert",
                 "state": {
+                    "heavy_rain_with_storms": "Heavy rain with storms",
                     "heavy_rainfall": "Heavy rainfall",
+                    "none": "None",
                     "storms": "Storms",
-                    "strong_wind": "Strong wind",
-                    "none": "None"
+                    "strong_wind": "Strong wind"
                 },
                 "state_attributes": {
                     "level": {
@@ -48,10 +49,11 @@
                     },
                     "options": {
                         "state": {
+                            "heavy_rain_with_storms": "Heavy rain with storms",
                             "heavy_rainfall": "Heavy rainfall",
+                            "none": "None",
                             "storms": "Storms",
-                            "strong_wind": "Strong wind",
-                            "none": "None"
+                            "strong_wind": "Strong wind"
                         }
                     },
                     "probability": {

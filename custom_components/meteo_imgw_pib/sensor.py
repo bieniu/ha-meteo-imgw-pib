@@ -44,7 +44,7 @@ WEATHER_ALERT_DESCRIPTION = MeteoImgwPibSensorEntityDescription(
     key="weather_alert",
     translation_key="weather_alert",
     device_class=SensorDeviceClass.ENUM,
-    options=[*WEATHER_ALERTS_MAP.values(), "none"],
+    options=[*WEATHER_ALERTS_MAP.values()],
     value=lambda data: data.alert.event if data.alert else "none",
     attrs=lambda data: {
         "level": data.alert.level,
