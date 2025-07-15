@@ -34,7 +34,7 @@
                 "state": {
                     "heavy_rain_with_storms": "Heavy rain with storms",
                     "heavy_rainfall": "Heavy rainfall",
-                    "none": "None",
+                    "no_alert": "No alert",
                     "storms": "Storms",
                     "strong_wind": "Strong wind"
                 },
@@ -42,6 +42,7 @@
                     "level": {
                         "name": "Level",
                         "state": {
+                            "none": "None",
                             "orange": "Orange",
                             "red": "Red",
                             "yellow": "Yellow"
@@ -51,7 +52,7 @@
                         "state": {
                             "heavy_rain_with_storms": "Heavy rain with storms",
                             "heavy_rainfall": "Heavy rainfall",
-                            "none": "None",
+                            "no_alert": "No alert",
                             "storms": "Storms",
                             "strong_wind": "Strong wind"
                         }
