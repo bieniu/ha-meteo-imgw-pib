@@ -7,7 +7,7 @@ from unittest.mock import AsyncMock, Mock, patch
 from zoneinfo import ZoneInfo
 
 import pytest
-from imgw_pib.model import SensorData, Alert, WeatherData
+from imgw_pib.model import Alert, SensorData, WeatherData
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from syrupy.assertion import SnapshotAssertion
 from syrupy.extensions.amber import AmberSnapshotExtension
