@@ -121,9 +121,11 @@ async def async_setup_entry(
     """Add a Meteo IMGW-PIB sensor entity from a config_entry."""
     coordinator = entry.runtime_data.coordinator
 
-    async_add_entities(MeteoImgwPibSensorEntity(coordinator, description)
-            for description in SENSOR_TYPES
-            if getattr(coordinator.data, description.key).value is not None)
+    async_add_entities(
+        MeteoImgwPibSensorEntity(coordinator, description)
+        for description in SENSOR_TYPES
+        if getattr(coordinator.data, description.key).value is not None
+    )
 
 
 class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
