@@ -20,6 +20,7 @@ class MeteoImgwPibEntity(CoordinatorEntity[MeteoImgwPibDataUpdateCoordinator]):
         """Initialize."""
         super().__init__(coordinator)
 
+        self._attr_device_info = coordinator.device_info
         # to remove this line after some time
         if hasattr(coordinator.data, ATTR_LATITUDE) and hasattr(  # noqa: SIM102
             coordinator.data, ATTR_LONGITUDE
