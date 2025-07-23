@@ -5,7 +5,6 @@ from dataclasses import dataclass
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from imgw_pib import ApiError, ImgwPib, WeatherData
 
@@ -31,12 +30,6 @@ class MeteoImgwPibDataUpdateCoordinator(DataUpdateCoordinator[WeatherData]):
         """Initialize."""
         self.imgwpib = imgwpib
         self.station_id = station_id
-        self.device_info = DeviceInfo(
-            entry_type=DeviceEntryType.SERVICE,
-            identifiers={(DOMAIN, station_id)},
-            manufacturer="IMGW-PIB",
-            name=f"{imgwpib.weather_stations[station_id]}",
-        )
 
         super().__init__(
             hass,

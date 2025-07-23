@@ -51,6 +51,7 @@
                     },
                     "options": {
                         "state": {
+                            "heat": "Heat",
                             "heavy_rain_with_storms": "Heavy rain with storms",
                             "heavy_rainfall": "Heavy rainfall",
                             "no_alert": "No alert",

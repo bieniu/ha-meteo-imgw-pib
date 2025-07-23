@@ -161,6 +161,7 @@
         'heavy_rainfall',
         'heavy_rain_with_storms',
         'strong_wind',
+        'heat',
       ]),
       'probability': 80,
       'valid_from': datetime.datetime(2025, 7, 11, 14, 0, tzinfo=zoneinfo.ZoneInfo(key='Europe/Warsaw')),

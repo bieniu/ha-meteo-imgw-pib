@@ -51,6 +51,7 @@
                     },
                     "options": {
                         "state": {
+                            "heat": "upa\u0142",
                             "heavy_rain_with_storms": "silny deszcz z burzami",
                             "heavy_rainfall": "intensywne opady deszczu",
                             "no_alert": "brak",
