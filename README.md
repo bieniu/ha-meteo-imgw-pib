@@ -24,6 +24,18 @@ To configure integration in Home Assistant, go to **Settings** >> **Devices & se
 
 [![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=meteo_imgw_pib)
 
+## How to debug
+
+To debug the integration add this to your `logger` configuration:
+
+```yaml
+# configuration.yaml file
+logger:
+  default: warning
+  logs:
+    custom_components.meteo_imgw_pib: debug
+    imgw_pib: debug
+```
 
 [releases]: https://github.com/bieniu/ha-meteo-imgw-pib/releases
 [releases-shield]: https://img.shields.io/github/release/bieniu/ha-meteo-imgw-pib.svg?style=popout
