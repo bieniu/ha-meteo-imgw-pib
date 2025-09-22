@@ -158,6 +158,7 @@
       'options': list([
         'no_alert',
         'storms',
+        'dense_fog',
         'heavy_rainfall',
         'heavy_rain_with_storms',
         'strong_wind',
