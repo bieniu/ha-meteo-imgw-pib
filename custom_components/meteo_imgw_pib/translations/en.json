@@ -51,6 +51,7 @@
                     },
                     "options": {
                         "state": {
+                            "dense_fog": "Dense fog",
                             "heat": "Heat",
                             "heavy_rain_with_storms": "Heavy rain with storms",
                             "heavy_rainfall": "Heavy rainfall",

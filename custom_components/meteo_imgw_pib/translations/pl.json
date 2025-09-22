@@ -32,6 +32,7 @@
             "weather_alert": {
                 "name": "Alert pogodowy",
                 "state": {
+                    "dense_fog": "g\u0119sta mg\u0142a",
                     "heat": "upa\u0142",
                     "heavy_rain_with_storms": "silny deszcz z burzami",
                     "heavy_rainfall": "intensywne opady deszczu",
