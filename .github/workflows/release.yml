@@ -28,6 +28,6 @@ jobs:
           zip meteo_imgw_pib.zip -r ./
 
       - name: Upload zip to release
-        uses: softprops/action-gh-release@v2.3.3
+        uses: softprops/action-gh-release@v2.3.4
         with:
           files: ${{ github.workspace }}/custom_components/meteo_imgw_pib/meteo_imgw_pib.zip
