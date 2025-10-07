@@ -6,5 +6,5 @@ pytest-cov
 pytest-error-for-skips==2.0.2
 pytest-homeassistant-custom-component==0.13.286
 pytest
-ruff==0.13.2
+ruff==0.13.3
 syrupy
