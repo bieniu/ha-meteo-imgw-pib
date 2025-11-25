@@ -33,12 +33,15 @@
                 "name": "Alert pogodowy",
                 "state": {
                     "dense_fog": "g\u0119sta mg\u0142a",
+                    "freezing_rain": "opady marzn\u0105ce",
                     "heat": "upa\u0142",
                     "heavy_rain_with_storms": "silny deszcz z burzami",
                     "heavy_rainfall": "intensywne opady deszczu",
                     "no_alert": "brak",
+                    "snow_blizzard": "zamiecie \u015bnie\u017cne",
                     "storms": "burze",
-                    "strong_wind": "silny wiatr"
+                    "strong_wind": "silny wiatr",
+                    "thaw": "roztopy"
                 },
                 "state_attributes": {
                     "level": {

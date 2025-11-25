@@ -52,12 +52,15 @@
                     "options": {
                         "state": {
                             "dense_fog": "Dense fog",
+                            "freezing_rain": "Freezing rain",
                             "heat": "Heat",
                             "heavy_rain_with_storms": "Heavy rain with storms",
                             "heavy_rainfall": "Heavy rainfall",
                             "no_alert": "No alert",
+                            "snow_blizzard": "Snow blizzard",
                             "storms": "Storms",
-                            "strong_wind": "Strong wind"
+                            "strong_wind": "Strong wind",
+                            "thaw": "Thaw"
                         }
                     },
                     "probability": {
