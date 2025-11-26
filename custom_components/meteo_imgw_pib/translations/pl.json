@@ -37,6 +37,8 @@
                     "heat": "upa\u0142",
                     "heavy_rain_with_storms": "silny deszcz z burzami",
                     "heavy_rainfall": "intensywne opady deszczu",
+                    "heavy_snowfall": "intensywne opady \u015bniegu",
+                    "icing": "oblodzenie",
                     "no_alert": "brak",
                     "snow_blizzard": "zamiecie \u015bnie\u017cne",
                     "storms": "burze",

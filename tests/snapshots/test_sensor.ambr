@@ -160,6 +160,8 @@
         'storms',
         'dense_fog',
         'heavy_rainfall',
+        'heavy_snowfall',
+        'icing',
         'freezing_rain',
         'thaw',
         'heavy_rain_with_storms',
