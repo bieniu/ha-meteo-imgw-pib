@@ -56,6 +56,8 @@
                             "heat": "Heat",
                             "heavy_rain_with_storms": "Heavy rain with storms",
                             "heavy_rainfall": "Heavy rainfall",
+                            "heavy_snowfall": "Heavy snowfall",
+                            "icing": "Icing",
                             "no_alert": "No alert",
                             "snow_blizzard": "Snow blizzard",
                             "storms": "Storms",
