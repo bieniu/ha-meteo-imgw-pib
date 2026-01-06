@@ -165,6 +165,7 @@
         'freezing_rain',
         'thaw',
         'heavy_rain_with_storms',
+        'heavy_frost',
         'strong_wind',
         'heat',
         'snow_blizzard',
