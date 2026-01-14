@@ -39,6 +39,17 @@ logger:
     imgw_pib: debug
 ```
 
+## How to create a dev environment
+
+```bash
+git clone https://github.com/bieniu/ha-meteo-imgw-pib.git
+cd ha-meteo-imgw-pib
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements-dev.txt
+prek install
+```
+
 [releases]: https://github.com/bieniu/ha-meteo-imgw-pib/releases
 [releases-shield]: https://img.shields.io/github/release/bieniu/ha-meteo-imgw-pib.svg?style=popout
 [downloads-total-shield]: https://img.shields.io/github/downloads/bieniu/ha-meteo-imgw-pib/total
