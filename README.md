@@ -1,3 +1,4 @@
+[![CI](https://img.shields.io/github/actions/workflow/status/bieniu/ha-meteo-imgw-pib/ci.yml?branch=master&label=CI&logo=github&style=popout)](https://github.com/bieniu/ha-meteo-imgw-pib/actions/workflows/ci.yml?query=branch%3Amaster)
 [![Validate with hassfest](https://github.com/bieniu/ha-meteo-imgw-pib/actions/workflows/hassfest.yml/badge.svg)](https://github.com/bieniu/ha-meteo-imgw-pib/actions/workflows/hassfest.yml)
 [![GitHub Release][releases-shield]][releases]
 [![GitHub All Releases][downloads-total-shield]][releases]
@@ -14,7 +15,7 @@ Meteo IMGW-PIB custom integration uses data from the IMGW-PIB API (Poland only) 
 
 ## Installation
 
-You can install this integration manually or via [HACS](https://hacs.xyz) if you add the repository to the custom repository list (**three dot menu** >> **Custom repositories**)
+You can install this integration manually or via [HACS](https://hacs.xyz).
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bieniu&repository=https%3A%2F%2Fgithub.com%2Fbieniu%2Fha-meteo-imgw-pib&category=integration)
 

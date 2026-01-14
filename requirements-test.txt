@@ -1,4 +1,3 @@
-coverage
 homeassistant
 imgw_pib
 pytest-cov
