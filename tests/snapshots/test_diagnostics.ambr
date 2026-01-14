@@ -1,0 +1,69 @@
+# serializer version: 1
+# name: test_diagnostics
+  dict({
+    'config_entry_data': dict({
+      'data': dict({
+        'station_id': '12200',
+      }),
+      'disabled_by': None,
+      'discovery_keys': dict({
+      }),
+      'domain': 'meteo_imgw_pib',
+      'minor_version': 1,
+      'options': dict({
+      }),
+      'pref_disable_new_entities': False,
+      'pref_disable_polling': False,
+      'source': 'user',
+      'subentries': list([
+      ]),
+      'title': 'Warszawa',
+      'unique_id': '12200',
+      'version': 1,
+    }),
+    'weather_data': dict({
+      'humidity': dict({
+        'name': 'humidity',
+        'unit': None,
+        'value': 88,
+      }),
+      'latitude': None,
+      'longitude': None,
+      'measurement_date': None,
+      'precipitation': dict({
+        'name': 'precipitation',
+        'unit': None,
+        'value': 5,
+      }),
+      'pressure': dict({
+        'name': 'pressure',
+        'unit': None,
+        'value': 1002,
+      }),
+      'station': 'Warszawa',
+      'station_id': '12200',
+      'temperature': dict({
+        'name': 'temperature',
+        'unit': None,
+        'value': 12.5,
+      }),
+      'weather_alert': dict({
+        'level': 'yellow',
+        'probability': 80,
+        'valid_from': '2025-07-11T14:00:00+02:00',
+        'valid_to': '2025-07-11T22:00:00+02:00',
+        'value': 'strong_wind',
+      }),
+      'wind_direction': dict({
+        'name': 'wind_direction',
+        'unit': None,
+        'value': 12,
+      }),
+      'wind_speed': dict({
+        'name': 'wind_speed',
+        'unit': None,
+        'value': 4,
+      }),
+    }),
+  })
+# ---
