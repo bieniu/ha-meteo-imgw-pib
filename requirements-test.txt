@@ -1,5 +1,5 @@
 homeassistant
-imgw_pib
+imgw_pib==2.0.0
 pytest-cov
 pytest-error-for-skips==2.0.2
 pytest-homeassistant-custom-component==0.13.305
