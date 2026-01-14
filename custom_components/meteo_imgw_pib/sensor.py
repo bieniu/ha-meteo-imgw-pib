@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import bisect
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
@@ -158,36 +159,52 @@ class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
         return None
 
 
-def _get_wind_direction(wind_direction_degree: float) -> str:  # noqa: PLR0911,PLR0912
+# Wind direction boundaries and corresponding names
+_WIND_DEGREES = [
+    0.0,
+    11.25,
+    33.75,
+    56.25,
+    78.75,
+    101.25,
+    123.75,
+    146.25,
+    168.75,
+    191.25,
+    213.75,
+    236.25,
+    258.75,
+    281.25,
+    303.75,
+    326.25,
+    348.75,  # Wrap around for degrees >= 348.75
+]
+_WIND_NAMES = [
+    "n",
+    "nne",
+    "ne",
+    "ene",
+    "e",
+    "ese",
+    "se",
+    "sse",
+    "s",
+    "ssw",
+    "sw",
+    "wsw",
+    "w",
+    "wnw",
+    "nw",
+    "nnw",
+    "n",  # Wrap around
+]
+
+
+def _get_wind_direction(wind_direction_degree: float) -> str:
     """Convert wind direction degree to named direction."""
-    if 11.25 <= wind_direction_degree < 33.75:  # noqa: PLR2004
-        return "nne"
-    if 33.75 <= wind_direction_degree < 56.25:  # noqa: PLR2004
-        return "ne"
-    if 56.25 <= wind_direction_degree < 78.75:  # noqa: PLR2004
-        return "ene"
-    if 78.75 <= wind_direction_degree < 101.25:  # noqa: PLR2004
-        return "e"
-    if 101.25 <= wind_direction_degree < 123.75:  # noqa: PLR2004
-        return "ese"
-    if 123.75 <= wind_direction_degree < 146.25:  # noqa: PLR2004
-        return "se"
-    if 146.25 <= wind_direction_degree < 168.75:  # noqa: PLR2004
-        return "sse"
-    if 168.75 <= wind_direction_degree < 191.25:  # noqa: PLR2004
-        return "s"
-    if 191.25 <= wind_direction_degree < 213.75:  # noqa: PLR2004
-        return "ssw"
-    if 213.75 <= wind_direction_degree < 236.25:  # noqa: PLR2004
-        return "sw"
-    if 236.25 <= wind_direction_degree < 258.75:  # noqa: PLR2004
-        return "wsw"
-    if 258.75 <= wind_direction_degree < 281.25:  # noqa: PLR2004
-        return "w"
-    if 281.25 <= wind_direction_degree < 303.75:  # noqa: PLR2004
-        return "wnw"
-    if 303.75 <= wind_direction_degree < 326.25:  # noqa: PLR2004
-        return "nw"
-    if 326.25 <= wind_direction_degree < 348.75:  # noqa: PLR2004
-        return "nnw"
-    return "n"
+    # Normalize degree to 0-360 range
+    normalized_degree = wind_direction_degree % 360
+    # Find the insertion point
+    idx = bisect.bisect_right(_WIND_DEGREES, normalized_degree)
+    # Get the direction, default to "n" if not found
+    return _WIND_NAMES[idx - 1] if idx > 0 else "n"
