@@ -1,5 +1,6 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/bieniu/ha-meteo-imgw-pib/ci.yml?branch=master&label=CI&logo=github&style=popout)](https://github.com/bieniu/ha-meteo-imgw-pib/actions/workflows/ci.yml?query=branch%3Amaster)
 [![Validate with hassfest](https://github.com/bieniu/ha-meteo-imgw-pib/actions/workflows/hassfest.yml/badge.svg)](https://github.com/bieniu/ha-meteo-imgw-pib/actions/workflows/hassfest.yml)
+[![codecov](https://codecov.io/gh/bieniu/ha-meteo-imgw-pib/graph/badge.svg?token=ZWK87DS4WY)](https://codecov.io/gh/bieniu/ha-meteo-imgw-pib)
 [![GitHub Release][releases-shield]][releases]
 [![GitHub All Releases][downloads-total-shield]][releases]
 [![Buy me a coffee][buy-me-a-coffee-shield]][buy-me-a-coffee]
