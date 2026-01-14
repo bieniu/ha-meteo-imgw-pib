@@ -19,6 +19,7 @@ categories:
       - "enhancement"
       - "refactor"
       - "performance"
+      - "tests"
 
   - title: "🧰 Maintenance"
     labels:
@@ -50,11 +51,12 @@ version-resolver:
       - "enhancement"
       - "performance"
       - "refactor"
+      - "tests"
   default: patch
 
 template: |
   [![Downloads for this release](https://img.shields.io/github/downloads/bieniu/ha-meteo-imgw-pib/$RESOLVED_VERSION/total.svg)](https://github.com/bieniu/ha-meteo-imgw-pib/releases/$RESOLVED_VERSION)
 
   ## What's changed
-  
+
   $CHANGES
