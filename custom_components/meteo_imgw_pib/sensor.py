@@ -160,24 +160,43 @@ class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
 
 
 # Wind direction boundaries and corresponding names
-_WIND_DIRECTIONS = [
-    (0.0, "n"),
-    (11.25, "nne"),
-    (33.75, "ne"),
-    (56.25, "ene"),
-    (78.75, "e"),
-    (101.25, "ese"),
-    (123.75, "se"),
-    (146.25, "sse"),
-    (168.75, "s"),
-    (191.25, "ssw"),
-    (213.75, "sw"),
-    (236.25, "wsw"),
-    (258.75, "w"),
-    (281.25, "wnw"),
-    (303.75, "nw"),
-    (326.25, "nnw"),
-    (348.75, "n"),  # Wrap around for degrees >= 348.75
+_WIND_DEGREES = [
+    0.0,
+    11.25,
+    33.75,
+    56.25,
+    78.75,
+    101.25,
+    123.75,
+    146.25,
+    168.75,
+    191.25,
+    213.75,
+    236.25,
+    258.75,
+    281.25,
+    303.75,
+    326.25,
+    348.75,  # Wrap around for degrees >= 348.75
+]
+_WIND_NAMES = [
+    "n",
+    "nne",
+    "ne",
+    "ene",
+    "e",
+    "ese",
+    "se",
+    "sse",
+    "s",
+    "ssw",
+    "sw",
+    "wsw",
+    "w",
+    "wnw",
+    "nw",
+    "nnw",
+    "n",  # Wrap around
 ]
 
 
@@ -186,6 +205,6 @@ def _get_wind_direction(wind_direction_degree: float) -> str:
     # Normalize degree to 0-360 range
     normalized_degree = wind_direction_degree % 360
     # Find the insertion point
-    idx = bisect.bisect_right(_WIND_DIRECTIONS, (normalized_degree,))
+    idx = bisect.bisect_right(_WIND_DEGREES, normalized_degree)
     # Get the direction, default to "n" if not found
-    return _WIND_DIRECTIONS[idx - 1][1] if idx > 0 else "n"
+    return _WIND_NAMES[idx - 1] if idx > 0 else "n"
