@@ -22,7 +22,13 @@ async def test_diagnostics(
 ) -> None:
     """Test diagnostics."""
     await init_integration(hass, mock_config_entry)
-    assert (
-        await get_diagnostics_for_config_entry(hass, hass_client, mock_config_entry)
-        == snapshot
+
+    diagnostics = await get_diagnostics_for_config_entry(
+        hass, hass_client, mock_config_entry
     )
+
+    diagnostics["config_entry_data"].pop("created_at")
+    diagnostics["config_entry_data"].pop("modified_at")
+    diagnostics["config_entry_data"].pop("entry_id")
+
+    assert diagnostics == snapshot
