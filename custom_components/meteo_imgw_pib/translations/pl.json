@@ -56,16 +56,6 @@
                             "yellow": "\u017c\u00f3\u0142ty"
                         }
                     },
-                    "options": {
-                        "state": {
-                            "heat": "upa\u0142",
-                            "heavy_rain_with_storms": "silny deszcz z burzami",
-                            "heavy_rainfall": "intensywne opady deszczu",
-                            "no_alert": "brak",
-                            "storms": "burze",
-                            "strong_wind": "silny wiatr"
-                        }
-                    },
                     "probability": {
                         "name": "Prawdopodobie\u0144stwo"
                     },
