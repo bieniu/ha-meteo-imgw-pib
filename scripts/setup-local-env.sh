@@ -3,7 +3,7 @@
 if command -v python3.13 >/dev/null 2>&1; then
 	PYTHON_VERSION=3.13
 else
-	echo "Error: python3.13 is available in PATH" >&2
+	echo "Error: python3.13 is not available in PATH" >&2
 	exit 1
 fi
 
