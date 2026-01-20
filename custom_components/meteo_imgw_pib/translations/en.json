@@ -32,12 +32,19 @@
             "weather_alert": {
                 "name": "Weather alert",
                 "state": {
+                    "dense_fog": "Dense fog",
+                    "freezing_rain": "Freezing rain",
                     "heat": "Heat",
+                    "heavy_frost": "Heavy frost",
                     "heavy_rain_with_storms": "Heavy rain with storms",
                     "heavy_rainfall": "Heavy rainfall",
+                    "heavy_snowfall": "Heavy snowfall",
+                    "icing": "Icing",
                     "no_alert": "No alert",
+                    "snow_blizzard": "Snow blizzard",
                     "storms": "Storms",
-                    "strong_wind": "Strong wind"
+                    "strong_wind": "Strong wind",
+                    "thaw": "Thaw"
                 },
                 "state_attributes": {
                     "level": {
@@ -47,23 +54,6 @@
                             "orange": "Orange",
                             "red": "Red",
                             "yellow": "Yellow"
-                        }
-                    },
-                    "options": {
-                        "state": {
-                            "dense_fog": "Dense fog",
-                            "freezing_rain": "Freezing rain",
-                            "heat": "Heat",
-                            "heavy_frost": "Heavy frost",
-                            "heavy_rain_with_storms": "Heavy rain with storms",
-                            "heavy_rainfall": "Heavy rainfall",
-                            "heavy_snowfall": "Heavy snowfall",
-                            "icing": "Icing",
-                            "no_alert": "No alert",
-                            "snow_blizzard": "Snow blizzard",
-                            "storms": "Storms",
-                            "strong_wind": "Strong wind",
-                            "thaw": "Thaw"
                         }
                     },
                     "probability": {
