@@ -44,10 +44,7 @@ logger:
 ```bash
 git clone https://github.com/bieniu/ha-meteo-imgw-pib.git
 cd ha-meteo-imgw-pib
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements-dev.txt
-prek install
+scripts/setup-local-env.sh
 ```
 
 [releases]: https://github.com/bieniu/ha-meteo-imgw-pib/releases
