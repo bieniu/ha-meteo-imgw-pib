@@ -4,6 +4,7 @@ asyncio_default_fixture_loop_scope = "function"
 
 [tool.ty.environment]
 python-version = "3.13"
+python = "./venv"
 
 [tool.ruff]
 target-version = "py313"
