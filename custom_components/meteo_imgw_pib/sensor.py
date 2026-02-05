@@ -48,14 +48,16 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.ENUM,
         options=list(WEATHER_ALERTS_MAP.values()),
         value=lambda data: data.weather_alert.value,
-        attrs=lambda data: {
-            "level": data.weather_alert.level,
-            "probability": data.weather_alert.probability,
-            "valid_from": data.weather_alert.valid_from,
-            "valid_to": data.weather_alert.valid_to,
-        }
-        if data.weather_alert.value != NO_ALERT
-        else None,
+        attrs=lambda data: (
+            {
+                "level": data.weather_alert.level,
+                "probability": data.weather_alert.probability,
+                "valid_from": data.weather_alert.valid_from,
+                "valid_to": data.weather_alert.valid_to,
+            }
+            if data.weather_alert.value != NO_ALERT
+            else None
+        ),
     ),
     MeteoImgwPibSensorEntityDescription(
         key="temperature",
@@ -97,11 +99,11 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT_ANGLE,
         suggested_display_precision=0,
         value=lambda data: data.wind_direction.value,
-        attrs=lambda data: {
-            "direction_name": _get_wind_direction(data.wind_direction.value)
-        }
-        if data.wind_direction.value is not None
-        else None,
+        attrs=lambda data: (
+            {"direction_name": _get_wind_direction(data.wind_direction.value)}
+            if data.wind_direction.value is not None
+            else None
+        ),
     ),
     MeteoImgwPibSensorEntityDescription(
         key="precipitation",
