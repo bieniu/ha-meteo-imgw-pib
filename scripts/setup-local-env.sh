@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if command -v python3.13 >/dev/null 2>&1; then
-	PYTHON_VERSION=3.13
+if command -v python3.14 >/dev/null 2>&1; then
+	PYTHON_VERSION=3.14
 else
-	echo "Error: python3.13 is not available in PATH" >&2
+	echo "Error: python3.14 is not available in PATH" >&2
 	exit 1
 fi
 
