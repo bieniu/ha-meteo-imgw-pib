@@ -56,6 +56,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v7
@@ -68,7 +70,7 @@ jobs:
         run: uv pip install -r requirements-dev.txt --prerelease=allow
 
       - name: Run tests
-        run: uv run pytest --timeout=30 --cov --cov-branch --cov-report=xml --error-for-skips
+        run: uv run pytest --timeout=30 --cov=custom_components/meteo_imgw_pib --cov-report=xml --error-for-skips
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
