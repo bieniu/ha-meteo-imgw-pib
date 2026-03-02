@@ -47,7 +47,7 @@ class MeteoImgwPibFlowHandler(ConfigFlow, domain=DOMAIN):
                     client_session, weather_station_id=station_id
                 )
                 weather_data = await imgwpib.get_weather_data()
-            except (ClientError, TimeoutError, ApiError):
+            except ClientError, TimeoutError, ApiError:
                 errors["base"] = "cannot_connect"
             except Exception:  # pylint: disable=broad-except
                 _LOGGER.exception("Unexpected exception")
@@ -60,7 +60,7 @@ class MeteoImgwPibFlowHandler(ConfigFlow, domain=DOMAIN):
         try:
             imgwpib = await ImgwPib.create(client_session)
             await imgwpib.update_weather_stations()
-        except (ClientError, TimeoutError, ApiError):
+        except ClientError, TimeoutError, ApiError:
             return self.async_abort(reason="cannot_connect")
 
         options: list[SelectOptionDict] = [
