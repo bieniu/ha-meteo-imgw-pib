@@ -163,6 +163,7 @@
         'heavy_snowfall',
         'icing',
         'freezing_rain',
+        'snowfall',
         'thaw',
         'heavy_rain_with_storms',
         'heavy_frost',
