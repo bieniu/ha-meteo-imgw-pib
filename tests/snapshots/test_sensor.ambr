@@ -164,6 +164,7 @@
         'icing',
         'freezing_rain',
         'snowfall',
+        'frosts',
         'thaw',
         'heavy_rain_with_storms',
         'heavy_frost',
