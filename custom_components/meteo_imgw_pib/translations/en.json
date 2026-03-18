@@ -34,6 +34,7 @@
                 "state": {
                     "dense_fog": "Dense fog",
                     "freezing_rain": "Freezing rain",
+                    "frosts": "Frosts",
                     "heat": "Heat",
                     "heavy_frost": "Heavy frost",
                     "heavy_rain_with_storms": "Heavy rain with storms",
