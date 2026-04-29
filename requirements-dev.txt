@@ -1,6 +1,6 @@
 imgw_pib==2.1.1
-prek==0.3.10
+prek==0.3.11
 pytest-error-for-skips==2.0.2
-pytest-homeassistant-custom-component==0.13.324
-ruff==0.15.11
-ty==0.0.32
+pytest-homeassistant-custom-component==0.13.325
+ruff==0.15.12
+ty==0.0.33
