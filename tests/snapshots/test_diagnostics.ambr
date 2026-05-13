@@ -22,6 +22,12 @@
       'version': 1,
     }),
     'weather_data': dict({
+      'apparent_temperature': dict({
+        'name': 'apparent_temperature',
+        'unit': None,
+        'value': None,
+      }),
+      'condition': None,
       'humidity': dict({
         'name': 'humidity',
         'unit': None,
@@ -40,6 +46,7 @@
         'unit': None,
         'value': 1002,
       }),
+      'proxy_used': False,
       'station': 'Warszawa',
       'station_id': '12200',
       'temperature': dict({
@@ -58,6 +65,11 @@
         'name': 'wind_direction',
         'unit': None,
         'value': 12,
+      }),
+      'wind_gust': dict({
+        'name': 'wind_gust',
+        'unit': None,
+        'value': None,
       }),
       'wind_speed': dict({
         'name': 'wind_speed',
