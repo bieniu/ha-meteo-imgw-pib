@@ -1,7 +1,5 @@
 """IMGW-PIB weather platform."""
 
-from __future__ import annotations
-
 from homeassistant.components.weather import WeatherEntity
 from homeassistant.const import UnitOfPressure, UnitOfSpeed, UnitOfTemperature
 from homeassistant.core import HomeAssistant

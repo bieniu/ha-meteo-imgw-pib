@@ -1,8 +1,9 @@
 """Test sensor of Meteo IMGW-PIB integration."""
 
-from unittest.mock import AsyncMock
+from unittest.mock import AsyncMock, patch
 
 import pytest
+from homeassistant.const import Platform
 from pytest_homeassistant_custom_component.common import (
     HomeAssistant,
     MockConfigEntry,
@@ -24,7 +25,8 @@ async def test_sensor(
     """Test sensor."""
     entity_registry = er.async_get(hass)
 
-    await init_integration(hass, mock_config_entry)
+    with patch("custom_components.meteo_imgw_pib.PLATFORMS", [Platform.SENSOR]):
+        await init_integration(hass, mock_config_entry)
 
     entity_entries = er.async_entries_for_config_entry(
         entity_registry, mock_config_entry.entry_id
@@ -46,10 +48,14 @@ async def test_sensor(
             entity_entry_dict.pop(item)
         assert entity_entry_dict == snapshot(name=f"{entity_entry.entity_id}-entry")
 
-        state = hass.states.get(entity_entry.entity_id)._as_dict
+        state = hass.states.get(entity_entry.entity_id)
+        assert state is not None
+
+        state_dict = state._as_dict
         for item in ("context", "last_changed", "last_reported", "last_updated"):
-            state.pop(item)
-        assert state == snapshot(name=f"{entity_entry.entity_id}-state")
+            state_dict.pop(item)
+
+        assert state_dict == snapshot(name=f"{entity_entry.entity_id}-state")
 
 
 @pytest.mark.parametrize(

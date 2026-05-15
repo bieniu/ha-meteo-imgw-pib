@@ -27,7 +27,7 @@
         'unit': None,
         'value': 10.5,
       }),
-      'condition': None,
+      'condition': 'sunny',
       'humidity': dict({
         'name': 'humidity',
         'unit': None,
@@ -46,7 +46,7 @@
         'unit': None,
         'value': 1002,
       }),
-      'proxy_used': False,
+      'proxy_used': True,
       'station': 'Warszawa',
       'station_id': '12200',
       'temperature': dict({

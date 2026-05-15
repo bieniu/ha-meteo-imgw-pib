@@ -38,6 +38,8 @@ WEATHER_DATA = WeatherData(
     ),
     apparent_temperature=SensorData(name="apparent_temperature", value=10.5),
     wind_gust=SensorData(name="wind_gust", value=8),
+    condition="sunny",
+    proxy_used=True,
 )
 
 
