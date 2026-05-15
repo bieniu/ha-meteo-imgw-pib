@@ -28,7 +28,6 @@ async def async_setup_entry(
 class MeteoImgwPibWeather(MeteoImgwPibEntity, WeatherEntity):
     """Define Meteo IMGW-PIB weather entity."""
 
-    _attr_name = None
     _attr_native_temperature_unit = UnitOfTemperature.CELSIUS
     _attr_native_pressure_unit = UnitOfPressure.HPA
     _attr_native_wind_speed_unit = UnitOfSpeed.METERS_PER_SECOND
