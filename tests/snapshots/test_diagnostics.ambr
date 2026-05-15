@@ -25,7 +25,7 @@
       'apparent_temperature': dict({
         'name': 'apparent_temperature',
         'unit': None,
-        'value': None,
+        'value': 10.5,
       }),
       'condition': None,
       'humidity': dict({
@@ -69,7 +69,7 @@
       'wind_gust': dict({
         'name': 'wind_gust',
         'unit': None,
-        'value': None,
+        'value': 8,
       }),
       'wind_speed': dict({
         'name': 'wind_speed',

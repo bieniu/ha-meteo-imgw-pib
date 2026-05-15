@@ -19,6 +19,7 @@
 # name: test_weather[weather.warszawa-state]
   dict({
     'attributes': ReadOnlyDict({
+      'apparent_temperature': 10.5,
       'attribution': 'Data provided by IMGW-PIB',
       'friendly_name': 'Warszawa',
       'humidity': 88,
@@ -29,6 +30,7 @@
       'temperature_unit': <UnitOfTemperature.CELSIUS: '°C'>,
       'visibility_unit': <UnitOfLength.KILOMETERS: 'km'>,
       'wind_bearing': 12,
+      'wind_gust_speed': 28.8,
       'wind_speed': 14.4,
       'wind_speed_unit': <UnitOfSpeed.KILOMETERS_PER_HOUR: 'km/h'>,
     }),

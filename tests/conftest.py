@@ -36,8 +36,8 @@ WEATHER_DATA = WeatherData(
             tzinfo=ZoneInfo("Europe/Warsaw")
         ),
     ),
-    apparent_temperature=SensorData(name="apparent_temperature", value=None),
-    wind_gust=SensorData(name="wind_gust", value=None),
+    apparent_temperature=SensorData(name="apparent_temperature", value=10.5),
+    wind_gust=SensorData(name="wind_gust", value=8),
 )
 
 

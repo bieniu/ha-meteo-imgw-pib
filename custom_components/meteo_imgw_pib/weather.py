@@ -70,6 +70,16 @@ class MeteoImgwPibWeather(MeteoImgwPibEntity, WeatherEntity):
         return self.coordinator.data.wind_speed.value
 
     @property
+    def native_wind_gust_speed(self) -> float | None:
+        """Return the current wind gust speed."""
+        return self.coordinator.data.wind_gust.value
+
+    @property
     def wind_bearing(self) -> float | None:
         """Return the current wind bearing."""
         return self.coordinator.data.wind_direction.value
+
+    @property
+    def native_apparent_temperature(self) -> float | None:
+        """Return the current apparent temperature."""
+        return self.coordinator.data.apparent_temperature.value
