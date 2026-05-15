@@ -42,6 +42,11 @@ class MeteoImgwPibWeather(MeteoImgwPibEntity, WeatherEntity):
         self._attr_unique_id = coordinator.station_id
 
     @property
+    def available(self) -> bool:
+        """Return if the entity is available."""
+        return super().available and self.coordinator.data.proxy_used
+
+    @property
     def condition(self) -> str | None:
         """Return the current weather condition."""
         return self.coordinator.data.condition

@@ -1,17 +1,23 @@
 """Test weather of Meteo IMGW-PIB integration."""
 
+import dataclasses
 from unittest.mock import AsyncMock, patch
 
 from homeassistant.components.weather import DOMAIN as WEATHER_DOMAIN
-from homeassistant.const import Platform
+from homeassistant.const import STATE_UNAVAILABLE, Platform
+from homeassistant.util.dt import utcnow
 from pytest_homeassistant_custom_component.common import (
     HomeAssistant,
     MockConfigEntry,
+    async_fire_time_changed,
     er,
 )
 from syrupy import SnapshotAssertion
 
+from custom_components.meteo_imgw_pib.const import UPDATE_INTERVAL
+
 from . import init_integration
+from .conftest import WEATHER_DATA
 
 ENTITY_ID = "weather.warszawa"
 
@@ -75,3 +81,28 @@ async def test_weather_not_created_without_proxy(
 
     state = hass.states.get(ENTITY_ID)
     assert state is not None
+
+
+async def test_weather_unavailable_after_proxy_change(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    mock_imgw_pib_client: AsyncMock,
+) -> None:
+    """Test that weather entity becomes unavailable when proxy_used changes to False."""
+    with patch("custom_components.meteo_imgw_pib.PLATFORMS", [Platform.WEATHER]):
+        await init_integration(hass, mock_config_entry)
+
+    state = hass.states.get(ENTITY_ID)
+    assert state is not None
+    assert state.state != STATE_UNAVAILABLE
+
+    mock_imgw_pib_client.get_weather_data.return_value = dataclasses.replace(
+        WEATHER_DATA, proxy_used=False
+    )
+
+    async_fire_time_changed(hass, utcnow() + UPDATE_INTERVAL)
+    await hass.async_block_till_done()
+
+    state = hass.states.get(ENTITY_ID)
+    assert state is not None
+    assert state.state == STATE_UNAVAILABLE
