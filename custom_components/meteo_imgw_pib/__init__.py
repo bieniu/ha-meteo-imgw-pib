@@ -19,7 +19,7 @@ from .coordinator import (
     MeteoImgwPibDataUpdateCoordinator,
 )
 
-PLATFORMS: list[Platform] = [Platform.SENSOR]
+PLATFORMS: list[Platform] = [Platform.SENSOR, Platform.WEATHER]
 
 _LOGGER = logging.getLogger(__name__)
 
