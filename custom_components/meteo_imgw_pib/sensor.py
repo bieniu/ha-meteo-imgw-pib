@@ -1,7 +1,5 @@
 """IMGW-PIB sensor platform."""
 
-from __future__ import annotations
-
 import bisect
 from collections.abc import Callable
 from dataclasses import dataclass

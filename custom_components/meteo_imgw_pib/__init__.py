@@ -1,7 +1,5 @@
 """The Meteo IMGW-PIB integration."""
 
-from __future__ import annotations
-
 import logging
 
 from aiohttp import ClientError
@@ -19,7 +17,7 @@ from .coordinator import (
     MeteoImgwPibDataUpdateCoordinator,
 )
 
-PLATFORMS: list[Platform] = [Platform.SENSOR]
+PLATFORMS: list[Platform] = [Platform.SENSOR, Platform.WEATHER]
 
 _LOGGER = logging.getLogger(__name__)
 
