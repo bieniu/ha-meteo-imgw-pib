@@ -27,6 +27,11 @@
         'unit': None,
         'value': 10.5,
       }),
+      'cloud_coverage': dict({
+        'name': 'cloud_coverage',
+        'unit': None,
+        'value': 20,
+      }),
       'condition': 'sunny',
       'humidity': dict({
         'name': 'humidity',
