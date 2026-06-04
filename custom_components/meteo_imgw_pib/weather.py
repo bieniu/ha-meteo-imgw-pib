@@ -85,3 +85,8 @@ class MeteoImgwPibWeather(MeteoImgwPibEntity, WeatherEntity):
     def native_apparent_temperature(self) -> float | None:
         """Return the current apparent temperature."""
         return self.coordinator.data.apparent_temperature.value
+
+    @property
+    def cloud_coverage(self) -> float | None:
+        """Return the current cloud coverage."""
+        return self.coordinator.data.cloud_coverage.value
