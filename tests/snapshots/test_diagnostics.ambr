@@ -33,6 +33,8 @@
         'value': 20,
       }),
       'condition': 'sunny',
+      'forecast_hourly': None,
+      'forecast_twice_daily': None,
       'humidity': dict({
         'name': 'humidity',
         'unit': None,
