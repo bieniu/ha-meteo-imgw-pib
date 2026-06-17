@@ -1,4 +1,43 @@
 # serializer version: 1
+# name: test_forecast_service[hourly]
+  dict({
+    'weather.warszawa': dict({
+      'forecast': list([
+        dict({
+          'apparent_temperature': 15.9,
+          'cloud_coverage': 16,
+          'condition': 'sunny',
+          'datetime': '2025-07-11T15:00:00+00:00',
+          'humidity': 59,
+          'precipitation': 0.0,
+          'pressure': 1018.0,
+          'temperature': 15.9,
+          'wind_bearing': 272,
+          'wind_gust_speed': 21.96,
+          'wind_speed': 8.64,
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_forecast_service[twice_daily]
+  dict({
+    'weather.warszawa': dict({
+      'forecast': list([
+        dict({
+          'cloud_coverage': 37.5,
+          'condition': 'clear-night',
+          'datetime': '2025-07-11T00:00:00+00:00',
+          'is_daytime': False,
+          'precipitation': 0.0,
+          'temperature': 19.6,
+          'templow': 8.1,
+          'wind_speed': 9.0,
+        }),
+      ]),
+    }),
+  })
+# ---
 # name: test_weather[weather.warszawa-entry]
   dict({
     'config_subentry_id': None,
@@ -27,6 +66,7 @@
       'precipitation_unit': <UnitOfPrecipitationDepth.MILLIMETERS: 'mm'>,
       'pressure': 1002.0,
       'pressure_unit': <UnitOfPressure.HPA: 'hPa'>,
+      'supported_features': <WeatherEntityFeature.FORECAST_HOURLY|FORECAST_TWICE_DAILY: 6>,
       'temperature': 12.5,
       'temperature_unit': <UnitOfTemperature.CELSIUS: '°C'>,
       'visibility_unit': <UnitOfLength.KILOMETERS: 'km'>,

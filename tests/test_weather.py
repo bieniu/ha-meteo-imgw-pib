@@ -3,7 +3,9 @@
 import dataclasses
 from unittest.mock import AsyncMock, patch
 
+import pytest
 from homeassistant.components.weather import DOMAIN as WEATHER_DOMAIN
+from homeassistant.components.weather import SERVICE_GET_FORECASTS
 from homeassistant.const import STATE_UNAVAILABLE, Platform
 from homeassistant.util.dt import utcnow
 from pytest_homeassistant_custom_component.common import (
@@ -106,3 +108,31 @@ async def test_weather_unavailable_after_proxy_change(
     state = hass.states.get(ENTITY_ID)
     assert state is not None
     assert state.state == STATE_UNAVAILABLE
+
+
+@pytest.mark.parametrize(
+    ("forecast_type"),
+    ["twice_daily", "hourly"],
+)
+async def test_forecast_service(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    mock_imgw_pib_client: AsyncMock,
+    snapshot: SnapshotAssertion,
+    forecast_type: str,
+) -> None:
+    """Test multiple forecast."""
+    with patch("custom_components.meteo_imgw_pib.PLATFORMS", [Platform.WEATHER]):
+        await init_integration(hass, mock_config_entry)
+
+    response = await hass.services.async_call(
+        WEATHER_DOMAIN,
+        SERVICE_GET_FORECASTS,
+        {
+            "entity_id": ENTITY_ID,
+            "type": forecast_type,
+        },
+        blocking=True,
+        return_response=True,
+    )
+    assert response == snapshot
