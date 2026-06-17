@@ -27,6 +27,7 @@ async def test_diagnostics(
         hass, hass_client, mock_config_entry
     )
 
+    assert isinstance(diagnostics["config_entry_data"], dict)
     diagnostics["config_entry_data"].pop("created_at")
     diagnostics["config_entry_data"].pop("modified_at")
     diagnostics["config_entry_data"].pop("entry_id")

@@ -3,4 +3,4 @@ prek==0.4.4
 pytest-error-for-skips==2.0.2
 pytest-homeassistant-custom-component==0.13.338
 ruff==0.15.16
-ty==0.0.48
+ty==0.0.49

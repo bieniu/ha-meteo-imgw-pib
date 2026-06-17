@@ -6,9 +6,7 @@ from pytest_homeassistant_custom_component.common import (
 )
 
 
-async def init_integration(
-    hass: HomeAssistant, config_entry: MockConfigEntry
-) -> MockConfigEntry:
+async def init_integration(hass: HomeAssistant, config_entry: MockConfigEntry) -> None:
     """Set up the IMGW-PIB integration in Home Assistant."""
     config_entry.add_to_hass(hass)
 
