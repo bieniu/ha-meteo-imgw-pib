@@ -41,8 +41,37 @@ WEATHER_DATA = WeatherData(
     condition="sunny",
     cloud_coverage=SensorData(name="cloud_coverage", value=20),
     proxy_used=True,
-    forecast_twice_daily=None,
-    forecast_hourly=None,
+    forecast_twice_daily=[
+        {
+            "cloud_avg": 37.5,
+            "date": "2025-07-11T00:00:00Z",
+            "icon": "n0z00n",
+            "is_day": False,
+            "precip": 0,
+            "rain": 0,
+            "snow": 0,
+            "temp_max": 19.6,
+            "temp_min": 8.1,
+            "wind_max": 2.5,
+        }
+    ],
+    forecast_hourly=[
+        {
+            "cloud": 16,
+            "date": "2025-07-11T15:00:00Z",
+            "feels_like": 15.9,
+            "humidity": 59,
+            "icon": "n1z00d",
+            "precip": 0,
+            "pressure": 1018,
+            "rain": 0,
+            "snow": 0,
+            "temp": 15.9,
+            "wind_dir": 272,
+            "wind_gust": 6.1,
+            "wind_speed": 2.4,
+        }
+    ],
 )
 
 
