@@ -41,6 +41,8 @@ WEATHER_DATA = WeatherData(
     condition="sunny",
     cloud_coverage=SensorData(name="cloud_coverage", value=20),
     proxy_used=True,
+    forecast_twice_daily=None,
+    forecast_hourly=None,
 )
 
 

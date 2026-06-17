@@ -27,6 +27,7 @@
       'precipitation_unit': <UnitOfPrecipitationDepth.MILLIMETERS: 'mm'>,
       'pressure': 1002.0,
       'pressure_unit': <UnitOfPressure.HPA: 'hPa'>,
+      'supported_features': <WeatherEntityFeature.FORECAST_HOURLY|FORECAST_TWICE_DAILY: 6>,
       'temperature': 12.5,
       'temperature_unit': <UnitOfTemperature.CELSIUS: '°C'>,
       'visibility_unit': <UnitOfLength.KILOMETERS: 'km'>,
