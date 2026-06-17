@@ -21,6 +21,7 @@
     'attributes': ReadOnlyDict({
       'apparent_temperature': 10.5,
       'attribution': 'Data provided by IMGW-PIB',
+      'cloud_coverage': 20,
       'friendly_name': 'Warszawa',
       'humidity': 88,
       'precipitation_unit': <UnitOfPrecipitationDepth.MILLIMETERS: 'mm'>,
