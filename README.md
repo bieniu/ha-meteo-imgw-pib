@@ -12,7 +12,7 @@
 
 Meteo IMGW-PIB custom integration uses data from the IMGW-PIB API (Poland only) to present weather condition in Home Assistant.
 
-![obraz](https://github.com/user-attachments/assets/c870f780-7cb2-4eab-b5e0-9783c1c7b79f)
+<img width="667" height="529" alt="obraz" src="https://github.com/user-attachments/assets/151eeefc-24e0-4caa-9fb1-8644239d2e70" />
 
 ## Installation
 
