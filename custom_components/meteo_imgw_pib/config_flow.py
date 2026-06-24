@@ -38,7 +38,7 @@ class MeteoImgwPibFlowHandler(ConfigFlow, domain=DOMAIN):
             station_id = user_input[CONF_STATION_ID]
 
             await self.async_set_unique_id(station_id, raise_on_progress=False)
-            self._abort_if_unique_id_configured()
+            self._abort_if_unique_id_configured(reload_on_update=False)
 
             try:
                 imgwpib = await ImgwPib.create(
