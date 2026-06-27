@@ -20,6 +20,8 @@ jobs:
           version="${{ github.event.release.tag_name }}"
           cd "${{ github.workspace }}/custom_components/meteo_imgw_pib"
           sed -i "s/\"version\": \".*\"/\"version\": \"${version}\"/" manifest.json
+          cd "${{ github.workspace }}"
+          sed -i "s/^version = \".*\"/version = \"${version}\"/" pyproject.toml
 
       - name: Create zipped release package
         shell: bash
