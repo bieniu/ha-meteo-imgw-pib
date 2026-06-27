@@ -13,9 +13,9 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.const import (
     DEGREE,
-    PERCENTAGE,
     UnitOfLength,
     UnitOfPressure,
+    UnitOfRatio,
     UnitOfSpeed,
     UnitOfTemperature,
 )
@@ -67,7 +67,7 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
     ),
     MeteoImgwPibSensorEntityDescription(
         key="humidity",
-        native_unit_of_measurement=PERCENTAGE,
+        native_unit_of_measurement=UnitOfRatio.PERCENTAGE,
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
