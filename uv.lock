@@ -972,6 +972,35 @@ wheels = [
 ]
 
 [[package]]
+name = "ha-meteo-imgw-pib"
+version = "0.0.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "imgw-pib" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "prek" },
+    { name = "pytest-error-for-skips" },
+    { name = "pytest-homeassistant-custom-component" },
+    { name = "ruff" },
+    { name = "ty" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "imgw-pib", specifier = "==2.4.0" }]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "prek", specifier = "==0.4.5" },
+    { name = "pytest-error-for-skips", specifier = "==2.0.2" },
+    { name = "pytest-homeassistant-custom-component", specifier = "==0.13.341" },
+    { name = "ruff", specifier = "==0.15.19" },
+    { name = "ty", specifier = "==0.0.53" },
+]
+
+[[package]]
 name = "habluetooth"
 version = "6.26.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1306,35 +1335,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/d1/e3/a06dcd2e6df094c5e294721926f1f76da30f50823e2ac233a9198e804891/mashumaro-3.22.tar.gz", hash = "sha256:64538cc365204402a060ebde683a86505b5a4344acf6870d79021e9fbfe57360", size = 197845, upload-time = "2026-05-26T14:39:21.859Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9b/1c/92fd926c2e7763535454683250dbdd8d10aa2f2c62f58d6abbcce4d8b3fc/mashumaro-3.22-py3-none-any.whl", hash = "sha256:17dc4d7294c33ef380a8b929dda0608577aa2141988c00a0c4932310108fe71d", size = 95916, upload-time = "2026-05-26T14:39:20.233Z" },
-]
-
-[[package]]
-name = "meteo-imgw-pib"
-version = "0.0.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "imgw-pib" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "prek" },
-    { name = "pytest-error-for-skips" },
-    { name = "pytest-homeassistant-custom-component" },
-    { name = "ruff" },
-    { name = "ty" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "imgw-pib", specifier = "==2.4.0" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "prek", specifier = "==0.4.5" },
-    { name = "pytest-error-for-skips", specifier = "==2.0.2" },
-    { name = "pytest-homeassistant-custom-component", specifier = "==0.13.341" },
-    { name = "ruff", specifier = "==0.15.19" },
-    { name = "ty", specifier = "==0.0.53" },
 ]
 
 [[package]]
