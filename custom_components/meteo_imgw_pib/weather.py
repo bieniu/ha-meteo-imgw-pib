@@ -85,17 +85,26 @@ class MeteoImgwPibWeather(MeteoImgwPibEntity, WeatherEntity):
     @property
     def native_pressure(self) -> float | None:
         """Return the current pressure."""
-        return round(self.coordinator.data.pressure.value)
+        if isinstance(self.coordinator.data.pressure.value, float):
+            return round(self.coordinator.data.pressure.value)
+
+        return None
 
     @property
     def native_wind_speed(self) -> float | None:
         """Return the current wind speed."""
-        return round(self.coordinator.data.wind_speed.value)
+        if isinstance(self.coordinator.data.wind_speed.value, float):
+            return round(self.coordinator.data.wind_speed.value)
+
+        return None
 
     @property
     def native_wind_gust_speed(self) -> float | None:
         """Return the current wind gust speed."""
-        return round(self.coordinator.data.wind_gust.value)
+        if isinstance(self.coordinator.data.wind_gust.value, float):
+            return round(self.coordinator.data.wind_gust.value)
+
+        return None
 
     @property
     def wind_bearing(self) -> float | None:
