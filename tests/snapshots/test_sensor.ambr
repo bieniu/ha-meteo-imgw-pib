@@ -32,12 +32,12 @@
     'state': '88',
   })
 # ---
-# name: test_sensor[sensor.warszawa_precipitation-entry]
+# name: test_sensor[sensor.warszawa_precipitation_intensity-entry]
   dict({
     'config_subentry_id': None,
     'disabled_by': None,
     'entity_category': None,
-    'entity_id': 'sensor.warszawa_precipitation',
+    'entity_id': 'sensor.warszawa_precipitation_intensity',
     'has_entity_name': True,
     'icon': None,
     'name': None,
@@ -46,22 +46,22 @@
         'suggested_display_precision': 0,
       }),
     }),
-    'original_name': 'Precipitation',
+    'original_name': 'Precipitation intensity',
     'platform': 'meteo_imgw_pib',
     'translation_key': None,
     'unique_id': '12200_precipitation',
   })
 # ---
-# name: test_sensor[sensor.warszawa_precipitation-state]
+# name: test_sensor[sensor.warszawa_precipitation_intensity-state]
   dict({
     'attributes': ReadOnlyDict({
       <EntityStateAttribute.ATTRIBUTION: 'attribution'>: 'Data provided by IMGW-PIB',
-      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'precipitation',
-      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Warszawa Precipitation',
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'precipitation_intensity',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Warszawa Precipitation intensity',
       <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
-      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: <UnitOfLength.MILLIMETERS: 'mm'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: <UnitOfVolumetricFlux.MILLIMETERS_PER_HOUR: 'mm/h'>,
     }),
-    'entity_id': 'sensor.warszawa_precipitation',
+    'entity_id': 'sensor.warszawa_precipitation_intensity',
     'state': '5',
   })
 # ---

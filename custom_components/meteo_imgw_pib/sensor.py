@@ -13,11 +13,11 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.const import (
     DEGREE,
-    UnitOfLength,
     UnitOfPressure,
     UnitOfRatio,
     UnitOfSpeed,
     UnitOfTemperature,
+    UnitOfVolumetricFlux,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
@@ -105,8 +105,8 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
     ),
     MeteoImgwPibSensorEntityDescription(
         key="precipitation",
-        native_unit_of_measurement=UnitOfLength.MILLIMETERS,
-        device_class=SensorDeviceClass.PRECIPITATION,
+        native_unit_of_measurement=UnitOfVolumetricFlux.MILLIMETERS_PER_HOUR,
+        device_class=SensorDeviceClass.PRECIPITATION_INTENSITY,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
         value=lambda data: data.precipitation.value,
