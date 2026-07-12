@@ -951,7 +951,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "imgw-pib", specifier = "==2.4.2" }]
+requires-dist = [{ name = "imgw-pib", specifier = "==2.4.3" }]
 
 [package.metadata.requires-dev]
 dev = [
@@ -1157,7 +1157,7 @@ wheels = [
 
 [[package]]
 name = "imgw-pib"
-version = "2.4.2"
+version = "2.4.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -1165,9 +1165,9 @@ dependencies = [
     { name = "orjson" },
     { name = "yarl" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/85/7d/222639b2f148784331797c2b1678e402f7f474f5429d5f001ede706c1dd8/imgw_pib-2.4.2.tar.gz", hash = "sha256:c841afcb7183b8f175cc47f8072636201a54a4f088b7db5cdef35f57fedbf1f9", size = 31724, upload-time = "2026-07-08T13:00:25.719Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e5/48/6f352c98163818e5e1c3b3bccd03d9183b5064564f82ca9ce333236a58bd/imgw_pib-2.4.3.tar.gz", hash = "sha256:4b7f5b4ed43b03d98e6f420a54cbf994f3fd46c13a3c2f42bae34d946ae0b739", size = 31706, upload-time = "2026-07-12T12:10:07.124Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0e/4d/94226ec59c7499b6248a02096e25b97bac995d8de39c9c57e8969ba11a00/imgw_pib-2.4.2-py3-none-any.whl", hash = "sha256:9e1aeee3c994b10264455b530764eb3a8e9c8c1898449acc2d11f8fa3eab81da", size = 27918, upload-time = "2026-07-08T13:00:24.544Z" },
+    { url = "https://files.pythonhosted.org/packages/09/3d/41f6d701abd92c4d8c7a4e4be1e1e8ede6d0397f7c93c4836dafadc0d44f/imgw_pib-2.4.3-py3-none-any.whl", hash = "sha256:27d4b927a07706f5e9d99d6a6537cb40f1ff23497beda1845b63f94c9b64209a", size = 27920, upload-time = "2026-07-12T12:10:05.872Z" },
 ]
 
 [[package]]
