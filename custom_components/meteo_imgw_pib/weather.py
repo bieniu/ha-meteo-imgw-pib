@@ -129,7 +129,7 @@ class MeteoImgwPibWeather(MeteoImgwPibEntity, WeatherEntity):
                 ATTR_FORECAST_NATIVE_TEMP_LOW: item["temp_min"],
                 ATTR_FORECAST_NATIVE_PRECIPITATION: item["precip"],
                 ATTR_FORECAST_NATIVE_WIND_SPEED: item["wind_max"],
-                ATTR_FORECAST_CONDITION: parse_weather_icon(item["icon"]),
+                ATTR_FORECAST_CONDITION: parse_weather_icon(item.get("icon", "")),
             }
             for item in self.coordinator.data.forecast_twice_daily
         ]
