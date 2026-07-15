@@ -11,3 +11,4 @@ CONFIGURATION_URL = "https://meteo.imgw.pl/?lat={latitude}&lon={longitude}"
 CONF_STATION_ID = "station_id"
 
 UPDATE_INTERVAL = timedelta(minutes=30)
+PROXY_UPDATE_INTERVAL = timedelta(minutes=15)
