@@ -8,7 +8,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from imgw_pib import ApiError, ImgwPib, WeatherData
 
-from .const import DOMAIN, UPDATE_INTERVAL
+from .const import DOMAIN, PROXY_UPDATE_INTERVAL, UPDATE_INTERVAL
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -42,13 +42,18 @@ class MeteoImgwPibDataUpdateCoordinator(DataUpdateCoordinator[WeatherData]):
     async def _async_update_data(self) -> WeatherData:
         """Update data via internal method."""
         try:
-            return await self.imgwpib.get_weather_data()
+            data = await self.imgwpib.get_weather_data()
         except ApiError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
                 translation_key="update_error",
                 translation_placeholders={"entry": self.config_entry.title},
             ) from err
+
+        self.update_interval = (
+            PROXY_UPDATE_INTERVAL if data.proxy_used else UPDATE_INTERVAL
+        )
+        return data
 
 
 @dataclass
