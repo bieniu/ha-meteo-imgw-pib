@@ -29,6 +29,9 @@
     },
     "entity": {
         "sensor": {
+            "apparent_temperature": {
+                "name": "Temperatura odczuwalna"
+            },
             "weather_alert": {
                 "name": "Alert pogodowy",
                 "state": {

@@ -112,6 +112,18 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
         value=lambda data: data.precipitation.value,
     ),
 )
+PROXY_SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
+    MeteoImgwPibSensorEntityDescription(
+        key="apparent_temperature",
+        translation_key="apparent_temperature",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+        suggested_display_precision=1,
+        value=lambda data: data.apparent_temperature.value,
+        entity_registry_enabled_default=False,
+    ),
+)
 
 
 async def async_setup_entry(
@@ -122,11 +134,19 @@ async def async_setup_entry(
     """Add a Meteo IMGW-PIB sensor entity from a config_entry."""
     coordinator = entry.runtime_data.coordinator
 
-    async_add_entities(
+    entities = [
         MeteoImgwPibSensorEntity(coordinator, description)
         for description in SENSOR_TYPES
         if getattr(coordinator.data, description.key).value is not None
-    )
+    ]
+    if coordinator.data.proxy_used:
+        entities.extend(
+            MeteoImgwPibSensorEntity(coordinator, description)
+            for description in PROXY_SENSOR_TYPES
+            if getattr(coordinator.data, description.key).value is not None
+        )
+
+    async_add_entities(entities)
 
 
 class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
