@@ -115,6 +115,7 @@ SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
 PROXY_SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
     MeteoImgwPibSensorEntityDescription(
         key="apparent_temperature",
+        translation_key="apparent_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,

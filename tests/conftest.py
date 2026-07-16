@@ -114,6 +114,16 @@ def mock_setup_entry() -> Generator[AsyncMock]:
         yield mock_setup_entry
 
 
+@pytest.fixture
+def entity_registry_enabled_by_default() -> Generator[None]:
+    """Fixture to ensure all entities are enabled by default."""
+    with patch(
+        "homeassistant.helpers.entity.Entity.entity_registry_enabled_default",
+        return_value=True,
+    ):
+        yield
+
+
 @pytest.fixture(autouse=True)
 def auto_enable_custom_integrations(enable_custom_integrations: Mock) -> None:
     """Auto enable custom integrations."""

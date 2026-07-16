@@ -16,6 +16,7 @@ from custom_components.meteo_imgw_pib.sensor import _get_wind_direction
 from . import init_integration
 
 
+@pytest.mark.usefixtures("entity_registry_enabled_by_default")
 async def test_sensor(
     hass: HomeAssistant,
     mock_config_entry: MockConfigEntry,
