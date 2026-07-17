@@ -2,6 +2,22 @@
     "entity": {
         "sensor": {
             "weather_alert": {
+                "state": {
+                    "dense_fog": "mdi:weather-fog",
+                    "freezing_rain": "mdi:weather-snowy-rainy",
+                    "frosts": "mdi:snowflake-alert",
+                    "heat": "mdi:thermometer-alert",
+                    "heavy_frost": "mdi:snowflake-alert",
+                    "heavy_rain_with_storms": "mdi:weather-lightning-rainy",
+                    "heavy_rainfall": "mdi:weather-pouring",
+                    "heavy_snowfall": "mdi:weather-snowy-heavy",
+                    "icing": "mdi:snowflake-alert",
+                    "snow_blizzard": "mdi:weather-snowy-heavy",
+                    "snowfall": "mdi:weather-snowy",
+                    "storms": "mdi:weather-lightning",
+                    "strong_wind": "mdi:weather-windy",
+                    "thaw": "mdi:thermometer-chevron-up"
+                },
                 "default": "mdi:alert-octagon-outline"
             }
         }
