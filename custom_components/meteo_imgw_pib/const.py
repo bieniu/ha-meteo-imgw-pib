@@ -20,6 +20,5 @@ PROXY_DISABLED_SENSORS = frozenset(
         "pressure",
         "wind_speed",
         "wind_direction",
-        "precipitation",
     }
 )
