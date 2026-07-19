@@ -12,3 +12,14 @@ CONF_STATION_ID = "station_id"
 
 UPDATE_INTERVAL = timedelta(minutes=30)
 PROXY_UPDATE_INTERVAL = timedelta(minutes=15)
+
+PROXY_DISABLED_SENSORS = frozenset(
+    {
+        "temperature",
+        "humidity",
+        "pressure",
+        "wind_speed",
+        "wind_direction",
+        "precipitation",
+    }
+)

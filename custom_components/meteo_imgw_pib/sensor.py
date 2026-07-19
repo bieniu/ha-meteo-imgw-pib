@@ -25,6 +25,7 @@ from homeassistant.helpers.typing import StateType
 from imgw_pib.const import NO_ALERT, WEATHER_ALERTS_MAP
 from imgw_pib.model import WeatherData
 
+from .const import PROXY_DISABLED_SENSORS
 from .coordinator import MeteoImgwPibConfigEntry, MeteoImgwPibDataUpdateCoordinator
 from .entity import MeteoImgwPibEntity
 
@@ -184,6 +185,9 @@ class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
 
         self._attr_unique_id = f"{coordinator.station_id}_{description.key}"
         self.entity_description = description
+
+        if coordinator.data.proxy_used and description.key in PROXY_DISABLED_SENSORS:
+            self._attr_entity_registry_enabled_default = False
 
     @property
     def native_value(self) -> StateType:
