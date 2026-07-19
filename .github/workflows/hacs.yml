@@ -1,8 +1,5 @@
 name: HACS Action
 
-permissions:
-  contents: read
-
 on:
   push:
     branches: [master]
@@ -15,11 +12,13 @@ jobs:
   hacs:
     name: HACS Action
     runs-on: "ubuntu-latest"
+    permissions:
+      contents: read
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
 
       - name: HACS Action
-        uses: hacs/action@22.5.0
+        uses: hacs/action@d556e736723344f83838d08488c983a15381059a  # v22.5.0
         with:
           category: "integration"

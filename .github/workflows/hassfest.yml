@@ -1,8 +1,5 @@
 name: Validate with hassfest
 
-permissions:
-  contents: read
-
 on:
   push:
     branches: [master]
@@ -15,9 +12,11 @@ jobs:
   hassfest:
     name: Validate with hassfest
     runs-on: "ubuntu-latest"
+    permissions:
+      contents: read
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
 
       - name: Validate with hassfest
         uses: home-assistant/actions/hassfest@master
