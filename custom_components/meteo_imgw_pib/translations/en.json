@@ -72,6 +72,12 @@
                     }
                 }
             },
+            "rain": {
+                "name": "Rainfall intensity"
+            },
+            "snow": {
+                "name": "Snowfall intensity"
+            },
             "wind_direction": {
                 "state_attributes": {
                     "direction_name": {

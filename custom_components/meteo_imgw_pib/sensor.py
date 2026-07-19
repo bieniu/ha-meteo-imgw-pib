@@ -123,6 +123,26 @@ PROXY_SENSOR_TYPES: tuple[MeteoImgwPibSensorEntityDescription, ...] = (
         value=lambda data: data.apparent_temperature.value,
         entity_registry_enabled_default=False,
     ),
+    MeteoImgwPibSensorEntityDescription(
+        key="rain",
+        translation_key="rain",
+        device_class=SensorDeviceClass.PRECIPITATION_INTENSITY,
+        native_unit_of_measurement=UnitOfVolumetricFlux.MILLIMETERS_PER_HOUR,
+        state_class=SensorStateClass.MEASUREMENT,
+        suggested_display_precision=0,
+        value=lambda data: data.rain.value,
+    ),
+    MeteoImgwPibSensorEntityDescription(
+        key="snow",
+        translation_key="snow",
+        device_class=SensorDeviceClass.PRECIPITATION_INTENSITY,
+        native_unit_of_measurement=UnitOfVolumetricFlux.MILLIMETERS_PER_HOUR,
+        state_class=SensorStateClass.MEASUREMENT,
+        suggested_display_precision=0,
+        value=lambda data: (
+            data.snow.value * 10 if data.snow.value is not None else None
+        ),
+    ),
 )
 
 
