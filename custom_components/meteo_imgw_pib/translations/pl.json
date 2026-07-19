@@ -72,6 +72,12 @@
                     }
                 }
             },
+            "rain": {
+                "name": "Intensywno\u015b\u0107 opad\u00f3w deszczu"
+            },
+            "snow": {
+                "name": "Intensywno\u015b\u0107 opad\u00f3w \u015bniegu"
+            },
             "wind_direction": {
                 "state_attributes": {
                     "direction_name": {

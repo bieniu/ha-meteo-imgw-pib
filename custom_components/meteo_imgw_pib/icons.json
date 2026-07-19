@@ -19,6 +19,12 @@
                     "thaw": "mdi:thermometer-chevron-up"
                 },
                 "default": "mdi:alert-octagon-outline"
+            },
+            "rain": {
+                "default": "mdi:weather-rainy"
+            },
+            "snow": {
+                "default": "mdi:weather-snowy"
             }
         }
     }
