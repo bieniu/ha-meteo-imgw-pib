@@ -1,8 +1,5 @@
 name: PR Labels
 
-permissions:
-  contents: read
-
 on:
   pull_request_target:
     types:
@@ -16,6 +13,8 @@ jobs:
   pr_labels:
     name: Verify label
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Verify PR has a valid label
         uses: jesusvasquez333/verify-pr-label-action@657d111bbbe13e22bbd55870f1813c699bde1401  # v1.4.0
