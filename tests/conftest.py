@@ -40,6 +40,8 @@ WEATHER_DATA = WeatherData(
     wind_gust=SensorData(name="wind_gust", value=8),
     condition="sunny",
     cloud_coverage=SensorData(name="cloud_coverage", value=20),
+    rain=SensorData(name="rain", value=10),
+    snow=SensorData(name="snow", value=2),
     proxy_used=True,
     forecast_twice_daily=[
         {
