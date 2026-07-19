@@ -77,6 +77,29 @@ WEATHER_DATA = WeatherData(
 )
 
 
+WEATHER_DATA_NO_DATA = WeatherData(
+    temperature=SensorData(name="temperature"),
+    humidity=SensorData(name="humidity"),
+    pressure=SensorData(name="pressure"),
+    wind_speed=SensorData(name="wind_speed"),
+    wind_direction=SensorData(name="wind_direction"),
+    precipitation=SensorData(name="precipitation"),
+    station="Warszawa",
+    station_id="12200",
+    measurement_date=None,
+    weather_alert=Alert(value="no_alert"),
+    apparent_temperature=SensorData(name="apparent_temperature"),
+    wind_gust=SensorData(name="wind_gust"),
+    condition=None,
+    cloud_coverage=SensorData(name="cloud_coverage"),
+    rain=SensorData(name="rain"),
+    snow=SensorData(name="snow"),
+    proxy_used=True,
+    forecast_twice_daily=[],
+    forecast_hourly=[],
+)
+
+
 @pytest.fixture
 def mock_imgw_pib_client() -> Generator[AsyncMock]:
     """Mock a ImgwPib client."""
