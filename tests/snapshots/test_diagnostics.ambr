@@ -83,6 +83,16 @@
         'value': 1002,
       }),
       'proxy_used': True,
+      'rain': dict({
+        'name': 'rain',
+        'unit': None,
+        'value': 10,
+      }),
+      'snow': dict({
+        'name': 'snow',
+        'unit': None,
+        'value': 2,
+      }),
       'station': 'Warszawa',
       'station_id': '12200',
       'temperature': dict({
