@@ -158,13 +158,11 @@ async def async_setup_entry(
     entities = [
         MeteoImgwPibSensorEntity(coordinator, description)
         for description in SENSOR_TYPES
-        if getattr(coordinator.data, description.key).value is not None
     ]
     if coordinator.data.proxy_used:
         entities.extend(
             MeteoImgwPibSensorEntity(coordinator, description)
             for description in PROXY_SENSOR_TYPES
-            if getattr(coordinator.data, description.key).value is not None
         )
 
     async_add_entities(entities)
