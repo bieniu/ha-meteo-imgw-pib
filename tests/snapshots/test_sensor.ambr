@@ -8,6 +8,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
       'sensor': ReadOnlyDict({
         'suggested_display_precision': 1,
@@ -41,6 +42,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
       'sensor': ReadOnlyDict({
         'suggested_display_precision': 0,
@@ -74,6 +76,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
       'sensor': ReadOnlyDict({
         'suggested_display_precision': 0,
@@ -107,6 +110,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
       'sensor': ReadOnlyDict({
         'suggested_display_precision': 0,
@@ -140,6 +144,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
       'sensor': ReadOnlyDict({
         'suggested_display_precision': 0,
@@ -173,6 +178,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
       'sensor': ReadOnlyDict({
         'suggested_display_precision': 0,
@@ -206,6 +212,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
       'sensor': ReadOnlyDict({
         'suggested_display_precision': 1,
@@ -239,6 +246,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
     }),
     'original_name': 'Weather alert',
@@ -288,6 +296,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
       'sensor': ReadOnlyDict({
         'suggested_display_precision': 0,
@@ -322,6 +331,7 @@
     'has_entity_name': True,
     'icon': None,
     'name': None,
+    'next_name_part': <NextNamePart.DEVICE: 'device'>,
     'options': ReadOnlyDict({
       'sensor': ReadOnlyDict({
         'suggested_display_precision': 0,
