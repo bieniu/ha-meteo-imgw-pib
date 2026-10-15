@@ -3,7 +3,7 @@
 import bisect
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -187,11 +187,13 @@ class MeteoImgwPibSensorEntity(MeteoImgwPibEntity, SensorEntity):
         if coordinator.data.proxy_used and description.key in PROXY_DISABLED_SENSORS:
             self._attr_entity_registry_enabled_default = False
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""
         return self.entity_description.value(self.coordinator.data)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes."""
