@@ -1,7 +1,5 @@
 """IMGW-PIB weather platform."""
 
-from typing import override
-
 from homeassistant.components.weather import (
     ATTR_FORECAST_CLOUD_COVERAGE,
     ATTR_FORECAST_CONDITION,
@@ -69,31 +67,26 @@ class MeteoImgwPibWeather(MeteoImgwPibEntity, WeatherEntity):
         """Return if the entity is available."""
         return super().available and self.coordinator.data.proxy_used
 
-    @override
     @property
     def condition(self) -> str | None:
         """Return the current weather condition."""
         return self.coordinator.data.condition
 
-    @override
     @property
     def native_temperature(self) -> float | None:
         """Return the current temperature."""
         return self.coordinator.data.temperature.value
 
-    @override
     @property
     def humidity(self) -> float | None:
         """Return the current humidity."""
         return self.coordinator.data.humidity.value
 
-    @override
     @property
     def native_pressure(self) -> float | None:
         """Return the current pressure."""
         return self.coordinator.data.pressure.value
 
-    @override
     @property
     def native_wind_speed(self) -> float | None:
         """Return the current wind speed."""
@@ -104,19 +97,16 @@ class MeteoImgwPibWeather(MeteoImgwPibEntity, WeatherEntity):
         """Return the current wind gust speed."""
         return self.coordinator.data.wind_gust.value
 
-    @override
     @property
     def wind_bearing(self) -> float | None:
         """Return the current wind bearing."""
         return self.coordinator.data.wind_direction.value
 
-    @override
     @property
     def native_apparent_temperature(self) -> float | None:
         """Return the current apparent temperature."""
         return self.coordinator.data.apparent_temperature.value
 
-    @override
     @property
     def cloud_coverage(self) -> float | None:
         """Return the current cloud coverage."""
