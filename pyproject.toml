@@ -12,7 +12,7 @@ dev = [
     "pytest-error-for-skips==2.0.2",
     "pytest-homeassistant-custom-component==0.13.372",
     "ruff==0.17.0",
-    "ty==0.0.86",
+    "ty==0.0.87",
 ]
 
 [tool.uv]
@@ -24,6 +24,10 @@ asyncio_default_fixture_loop_scope = "function"
 
 [tool.ty.environment]
 python-version = "3.14"
+
+[tool.ty.rules]
+invalid-mutable-override = "ignore"
+invalid-property-type-override = "ignore"
 
 [tool.ruff]
 target-version = "py314"
