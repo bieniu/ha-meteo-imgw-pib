@@ -154,7 +154,7 @@ class MeteoImgwPibWeather(MeteoImgwPibEntity, WeatherEntity):
                 ATTR_FORECAST_NATIVE_WIND_SPEED: item["wind_speed"],
                 ATTR_FORECAST_NATIVE_WIND_GUST_SPEED: item["wind_gust"],
                 ATTR_FORECAST_WIND_BEARING: item["wind_dir"],
-                ATTR_FORECAST_CONDITION: parse_weather_icon(item["icon"]),
+                ATTR_FORECAST_CONDITION: parse_weather_icon(item.get("icon")),
             }
             for item in self.coordinator.data.forecast_hourly
         ]
