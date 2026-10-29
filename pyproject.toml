@@ -8,11 +8,11 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "prek==0.5.5",
+    "prek==0.5.7",
     "pytest-error-for-skips==2.0.2",
-    "pytest-homeassistant-custom-component==0.13.373",
-    "ruff==0.17.1",
-    "ty==0.0.89",
+    "pytest-homeassistant-custom-component==0.13.375",
+    "ruff==0.17.2",
+    "ty==0.0.91",
 ]
 
 [tool.uv]
