@@ -16,9 +16,9 @@ Meteo IMGW-PIB custom integration uses data from the IMGW-PIB API (Poland only) 
 
 ## Installation
 
-You can install this integration manually or via [HACS](https://hacs.xyz).
+You can install this integration from the Home Assistant Marketplace (**Settings** >> **Marketplace**) or manually.
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bieniu&repository=ha-meteo-imgw-pib&category=integration)
+[![Open your Home Assistant instance and open a repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=bieniu&repository=ha-meteo-imgw-pib&category=integration)
 
 ## Configuration
 
