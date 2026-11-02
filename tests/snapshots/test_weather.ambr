@@ -78,25 +78,44 @@
   })
 # ---
 # name: test_weather[weather.warszawa-entry]
-  dict({
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
     'config_subentry_id': None,
+    'device_class': None,
+    'device_id': <DeviceEntry identifiers=[('meteo_imgw_pib', '12200')]>,
     'disabled_by': None,
+    'domain': 'weather',
     'entity_category': None,
     'entity_id': 'weather.warszawa',
     'has_entity_name': True,
+    'hidden_by': None,
     'icon': None,
-    'name': None,
-    'next_name_part': <NextNamePart.DEVICE: 'device'>,
-    'options': ReadOnlyDict({
+    'id': <ANY>,
+    'labels': set({
     }),
+    'name': None,
+    'object_id_base': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
     'original_name': None,
     'platform': 'meteo_imgw_pib',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': <WeatherEntityFeature: 6>,
     'translation_key': None,
     'unique_id': '12200',
+    'unit_of_measurement': None,
   })
 # ---
 # name: test_weather[weather.warszawa-state]
-  dict({
+  StateSnapshot({
     'attributes': ReadOnlyDict({
       <WeatherEntityStateAttribute.APPARENT_TEMPERATURE: 'apparent_temperature'>: 10.5,
       <EntityStateAttribute.ATTRIBUTION: 'attribution'>: 'Data provided by IMGW-PIB',
@@ -106,7 +125,7 @@
       <WeatherEntityStateAttribute.PRECIPITATION_UNIT: 'precipitation_unit'>: <UnitOfPrecipitationDepth.MILLIMETERS: 'mm'>,
       <WeatherEntityStateAttribute.PRESSURE: 'pressure'>: 1002.0,
       <WeatherEntityStateAttribute.PRESSURE_UNIT: 'pressure_unit'>: <UnitOfPressure.HPA: 'hPa'>,
-      <EntityStateAttribute.SUPPORTED_FEATURES: 'supported_features'>: <WeatherEntityFeature.FORECAST_HOURLY|FORECAST_TWICE_DAILY: 6>,
+      <EntityStateAttribute.SUPPORTED_FEATURES: 'supported_features'>: <WeatherEntityFeature: 6>,
       <WeatherEntityStateAttribute.TEMPERATURE: 'temperature'>: 12.5,
       <WeatherEntityStateAttribute.TEMPERATURE_UNIT: 'temperature_unit'>: <UnitOfTemperature.CELSIUS: '°C'>,
       <WeatherEntityStateAttribute.VISIBILITY_UNIT: 'visibility_unit'>: <UnitOfLength.KILOMETERS: 'km'>,
@@ -115,7 +134,11 @@
       <WeatherEntityStateAttribute.WIND_SPEED: 'wind_speed'>: 14.4,
       <WeatherEntityStateAttribute.WIND_SPEED_UNIT: 'wind_speed_unit'>: <UnitOfSpeed.KILOMETERS_PER_HOUR: 'km/h'>,
     }),
+    'context': <ANY>,
     'entity_id': 'weather.warszawa',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
     'state': 'sunny',
   })
 # ---
