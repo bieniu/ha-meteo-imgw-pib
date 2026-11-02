@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.14.2"
 
 [options]
@@ -1141,7 +1141,7 @@ dev = [
     { name = "prek", specifier = "==0.5.7" },
     { name = "pytest-cov", specifier = "==7.1.0" },
     { name = "pytest-error-for-skips", specifier = "==2.0.2" },
-    { name = "pytest-home-assistant", url = "https://github.com/home-assistant/core/archive/refs/tags/2026.11.0b1.tar.gz", subdirectory = "packages/pytest-home-assistant" },
+    { name = "pytest-home-assistant", git = "https://github.com/home-assistant/core.git?subdirectory=packages%2Fpytest-home-assistant&rev=6cfd47af9851a1552ad6f58c926b5814689a9f1d" },
     { name = "pytest-timeout", specifier = "==2.4.0" },
     { name = "ruff", specifier = "==0.17.3" },
     { name = "ty", specifier = "==0.0.92" },
@@ -2204,7 +2204,7 @@ wheels = [
 [[package]]
 name = "pytest-home-assistant"
 version = "0.0.0"
-source = { url = "https://github.com/home-assistant/core/archive/refs/tags/2026.11.0b1.tar.gz", subdirectory = "packages/pytest-home-assistant" }
+source = { git = "https://github.com/home-assistant/core.git?subdirectory=packages%2Fpytest-home-assistant&rev=6cfd47af9851a1552ad6f58c926b5814689a9f1d#6cfd47af9851a1552ad6f58c926b5814689a9f1d" }
 dependencies = [
     { name = "bleak-retry-connector" },
     { name = "freezegun" },
@@ -2220,34 +2220,6 @@ dependencies = [
     { name = "respx" },
     { name = "syrupy" },
 ]
-sdist = { hash = "sha256:b301f16e18a133ad66edbcecc8f9a60363d0785cdb75c480a41754fdeb670777" }
-
-[package.metadata]
-requires-dist = [
-    { name = "aiohasupervisor", marker = "extra == 'bluetooth'", specifier = "==0.8.1" },
-    { name = "aiousbwatcher", marker = "extra == 'bluetooth'", specifier = "==1.1.2" },
-    { name = "bleak-retry-connector", specifier = "==4.7.1" },
-    { name = "bluetooth-adapters", marker = "extra == 'bluetooth'", specifier = "==2.4.0" },
-    { name = "bluetooth-auto-recovery", marker = "extra == 'bluetooth'", specifier = "==1.6.4" },
-    { name = "bluetooth-data-tools", marker = "extra == 'bluetooth'", specifier = "==1.29.24" },
-    { name = "freezegun", specifier = "==1.5.5" },
-    { name = "habluetooth", marker = "extra == 'bluetooth'", specifier = "==7.1.2" },
-    { name = "homeassistant" },
-    { name = "infrared-protocols", marker = "extra == 'infrared'", specifier = "==10.5.0" },
-    { name = "paho-mqtt", specifier = "==2.1.0" },
-    { name = "pytest", specifier = "==9.0.3" },
-    { name = "pytest-aiohttp", specifier = "==1.1.1" },
-    { name = "pytest-asyncio", specifier = "==1.4.0" },
-    { name = "pytest-freezer", specifier = "==0.4.9" },
-    { name = "pytest-socket", specifier = "==0.8.1" },
-    { name = "pytest-xdist", specifier = "==3.8.0" },
-    { name = "requests-mock", specifier = "==1.12.1" },
-    { name = "respx", specifier = "==0.23.1" },
-    { name = "rf-protocols", marker = "extra == 'radio-frequency'", specifier = "==4.3.0" },
-    { name = "serialx", marker = "extra == 'bluetooth'", specifier = "==1.15.1" },
-    { name = "syrupy", specifier = "==6.1.1" },
-]
-provides-extras = ["bluetooth", "infrared", "radio-frequency"]
 
 [[package]]
 name = "pytest-socket"

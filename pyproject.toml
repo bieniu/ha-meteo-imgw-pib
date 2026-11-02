@@ -24,7 +24,7 @@ prerelease = "allow"
 # pytest-home-assistant is not published on PyPI; it ships in the Home Assistant
 # core repository. Bump the tag together with the homeassistant pin above.
 [tool.uv.sources]
-pytest-home-assistant = { url = "https://github.com/home-assistant/core/archive/refs/tags/2026.11.0b1.tar.gz", subdirectory = "packages/pytest-home-assistant" }
+pytest-home-assistant = { git = "https://github.com/home-assistant/core.git", rev = "6cfd47af9851a1552ad6f58c926b5814689a9f1d", subdirectory = "packages/pytest-home-assistant" }
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
