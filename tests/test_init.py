@@ -2,12 +2,10 @@
 
 from unittest.mock import AsyncMock
 
+from homeassistant import config_entries
+from homeassistant.core import HomeAssistant
 from imgw_pib import ApiError
-from pytest_homeassistant_custom_component.common import (
-    HomeAssistant,
-    MockConfigEntry,
-    config_entries,
-)
+from pytest_homeassistant.common import MockConfigEntry
 
 from custom_components.meteo_imgw_pib.const import DOMAIN
 

@@ -2,16 +2,12 @@
 
 from collections.abc import Generator
 from datetime import datetime
-from pathlib import Path
-from unittest.mock import AsyncMock, Mock, patch
+from unittest.mock import AsyncMock, patch
 from zoneinfo import ZoneInfo
 
 import pytest
 from imgw_pib.model import Alert, SensorData, WeatherData
-from pytest_homeassistant_custom_component.common import MockConfigEntry
-from syrupy.assertion import SnapshotAssertion
-from syrupy.extensions.amber import AmberSnapshotExtension
-from syrupy.location import PyTestLocation
+from pytest_homeassistant.common import MockConfigEntry
 
 from custom_components.meteo_imgw_pib.const import CONF_STATION_ID, DOMAIN
 
@@ -137,35 +133,3 @@ def mock_setup_entry() -> Generator[AsyncMock]:
         "custom_components.meteo_imgw_pib.async_setup_entry", return_value=True
     ) as mock_setup_entry:
         yield mock_setup_entry
-
-
-@pytest.fixture
-def entity_registry_enabled_by_default() -> Generator[None]:
-    """Fixture to ensure all entities are enabled by default."""
-    with patch(
-        "homeassistant.helpers.entity.Entity.entity_registry_enabled_default",
-        return_value=True,
-    ):
-        yield
-
-
-@pytest.fixture(autouse=True)
-def auto_enable_custom_integrations(enable_custom_integrations: Mock) -> None:
-    """Auto enable custom integrations."""
-    return
-
-
-@pytest.fixture
-def snapshot(snapshot: SnapshotAssertion) -> SnapshotAssertion:
-    """Return snapshot assertion fixture."""
-    return snapshot.use_extension(SnapshotExtension)
-
-
-class SnapshotExtension(AmberSnapshotExtension):
-    """Extension for Syrupy."""
-
-    @classmethod
-    def dirname(cls, *, test_location: PyTestLocation) -> str:
-        """Return the directory for the snapshot files."""
-        test_dir = Path(test_location.filepath).parent
-        return str(test_dir.joinpath("snapshots"))

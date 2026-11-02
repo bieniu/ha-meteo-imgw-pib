@@ -7,14 +7,15 @@ import pytest
 from homeassistant.components.weather import DOMAIN as WEATHER_DOMAIN
 from homeassistant.components.weather import SERVICE_GET_FORECASTS
 from homeassistant.const import STATE_UNAVAILABLE, Platform
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers import entity_registry as er
 from homeassistant.util.dt import utcnow
-from pytest_homeassistant_custom_component.common import (
-    HomeAssistant,
+from pytest_homeassistant.common import (
     MockConfigEntry,
     async_fire_time_changed,
-    er,
+    snapshot_platform,
 )
-from syrupy import SnapshotAssertion
+from syrupy.assertion import SnapshotAssertion
 
 from custom_components.meteo_imgw_pib.const import UPDATE_INTERVAL
 
@@ -26,49 +27,16 @@ ENTITY_ID = "weather.warszawa"
 
 async def test_weather(
     hass: HomeAssistant,
+    entity_registry: er.EntityRegistry,
     mock_config_entry: MockConfigEntry,
     mock_imgw_pib_client: AsyncMock,
     snapshot: SnapshotAssertion,
 ) -> None:
     """Test weather entity state when proxy data is available."""
-    entity_registry = er.async_get(hass)
-
     with patch("custom_components.meteo_imgw_pib.PLATFORMS", [Platform.WEATHER]):
         await init_integration(hass, mock_config_entry)
 
-    entity_entries = er.async_entries_for_config_entry(
-        entity_registry, mock_config_entry.entry_id
-    )
-
-    weather_entries = [
-        entry for entry in entity_entries if entry.domain == WEATHER_DOMAIN
-    ]
-    assert len(weather_entries) == 1
-
-    for entity_entry in weather_entries:
-        entity_entry_dict = entity_entry.as_partial_dict
-        for item in (
-            "area_id",
-            "categories",
-            "config_entry_id",
-            "created_at",
-            "device_id",
-            "hidden_by",
-            "id",
-            "labels",
-            "modified_at",
-        ):
-            entity_entry_dict.pop(item)
-        assert entity_entry_dict == snapshot(name=f"{entity_entry.entity_id}-entry")
-
-        state = hass.states.get(entity_entry.entity_id)
-        assert state is not None
-
-        state_dict = state._as_dict
-        for item in ("context", "last_changed", "last_reported", "last_updated"):
-            state_dict.pop(item)
-
-        assert state_dict == snapshot(name=f"{entity_entry.entity_id}-state")
+    await snapshot_platform(hass, entity_registry, snapshot, mock_config_entry.entry_id)
 
 
 async def test_weather_not_created_without_proxy(

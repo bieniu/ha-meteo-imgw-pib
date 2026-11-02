@@ -1,9 +1,7 @@
 """Tests for Meteo IMGW-PIB."""
 
-from pytest_homeassistant_custom_component.common import (
-    HomeAssistant,
-    MockConfigEntry,
-)
+from homeassistant.core import HomeAssistant
+from pytest_homeassistant.common import MockConfigEntry
 
 
 async def init_integration(hass: HomeAssistant, config_entry: MockConfigEntry) -> None:
