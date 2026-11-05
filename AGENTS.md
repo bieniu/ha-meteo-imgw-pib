@@ -24,7 +24,7 @@ custom_components/meteo_imgw_pib/
 - Python 3.14 required. Venv lives in `./.venv`.
 - `scripts/setup-local-env.sh` creates it: `uv venv --python 3.14 && source .venv/bin/activate && uv sync && uv run prek install`
 - `uv sync` resolves dependencies from `pyproject.toml` / `uv.lock`. No `requirements-*.txt`.
-- `pytest-home-assistant` (official HA test plugin) is not on PyPI; `[tool.uv.sources]` pulls it from the HA core repo tag archive that matches the `homeassistant` pin. Bump both together, then `uv lock`.
+- `pytest-homeassistant` (official HA test plugin) is pinned from PyPI; it pulls in the matching `homeassistant` release, so `homeassistant` itself is unpinned.
 - CI runs `uv sync --frozen` — lockfile is the source of truth.
 
 ## Commands (run from venv or via `uv run`)
@@ -56,7 +56,7 @@ Lint/format config lives in `pyproject.toml` (`[tool.ruff]`). Pre-commit via `pr
 - Comments explain *why* something is done, not *what* the code does. Do not restate the code or add comments for obvious decisions.
 
 ## Testing
-- `pytest` with `pytest-home-assistant` (helpers from `pytest_homeassistant.common`). Use `MockConfigEntry`, `snapshot_platform`, and `init_integration` helper (`tests/__init__.py`).
+- `pytest` with `pytest-homeassistant` (helpers from `pytest_homeassistant.common`). Use `MockConfigEntry`, `snapshot_platform`, and `init_integration` helper (`tests/__init__.py`).
 - The plugin loads itself, enables custom integrations and provides `hass`, `entity_registry`, `entity_registry_enabled_by_default` and `snapshot` (HA syrupy extension) fixtures; do not redefine them in `conftest.py`.
 - Snapshots stored in `tests/snapshots/` (amber format, HA extension writes next to the test file).
 - Mock all external APIs via the `mock_imgw_pib_client` fixture (patches `ImgwPib` client). `conftest.py` provides realistic `WeatherData`.
