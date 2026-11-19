@@ -14,8 +14,8 @@ dev = [
     "pytest-error-for-skips==2.0.2",
     "pytest-homeassistant==2026.11.1",
     "pytest-timeout==2.4.0",
-    "ruff==0.17.4",
-    "ty==0.0.99",
+    "ruff==0.17.5",
+    "ty==0.0.104",
 ]
 
 [tool.uv]
@@ -31,8 +31,8 @@ addopts = "-p no:respx"
 python-version = "3.14"
 
 [tool.ty.rules]
-invalid-mutable-override = "ignore"
-invalid-property-type-override = "ignore"
+incompatible-mutable-override = "ignore"
+incompatible-property-override = "ignore"
 
 [tool.ruff]
 target-version = "py314"
