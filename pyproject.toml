@@ -31,8 +31,8 @@ addopts = "-p no:respx"
 python-version = "3.14"
 
 [tool.ty.rules]
-invalid-mutable-override = "ignore"
-invalid-property-type-override = "ignore"
+incompatible-mutable-override = "ignore"
+incompatible-property-override = "ignore"
 
 [tool.ruff]
 target-version = "py314"
